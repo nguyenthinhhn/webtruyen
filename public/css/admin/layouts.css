@@ -1,0 +1,21 @@
+.dropdown-bg-profile {
+    background: url('/bower_components/metronic-theme/assets/app/media/img/misc/user_profile_bg.jpg');
+    background-size: cover;
+}
+
+.auth-bg {
+    background-image: url('/bower_components/metronic-theme/assets/app/media/img//bg/bg-2.jpg');
+}
+
+body, button, .btn, .m-tooltip {
+    font-family: 'Roboto', sans-serif !important;
+    /*font-weight:500 !important;*/
+}
+
+button[data-notify="dismiss"], button[data-dismiss="alert"] {
+    font-family: LineAwesome !important;
+}
+
+.modal .modal-content .modal-header .close {
+    font-family: LineAwesome !important;
+}

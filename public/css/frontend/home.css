@@ -1,0 +1,30 @@
+.image {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #e7e7ff;
+}
+@media screen and (min-width: 1024px) {
+    .mgtop100 {
+        margin-top: 100px;
+    }
+}
+.width70 {
+    width: 70px;
+    height: 70px;
+}
+.bge7e7ff {
+    background-color: #e7e7ff;
+}
+
+.width200 {
+    width: 200px;
+    height: 300px;
+}
+
+.m-topbar__language-img {
+	width: 22px;
+	border-radius: 50%;
+}
+.width100 {
+    width: 100%;
+}
