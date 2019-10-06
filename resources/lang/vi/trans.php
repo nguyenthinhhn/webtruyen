@@ -116,4 +116,10 @@ return [
     'unfollow' => 'Bỏ theo dõi',
     'Login' => 'Đăng nhập',
     'No chapter' => 'Không có chương truyện nào ...',
+    'Update profile' => 'cập nhật thông tin cá nhân',
+    'Change password' => 'Đổi mật khẩu',
+    'User name' => 'Tên tài khoản',
+    'Full name' => 'Họ tên',
+    'New password' => 'Mật khẩu mới',
+    'Confirm password' => 'Xác nhận mật khẩu',
 ];

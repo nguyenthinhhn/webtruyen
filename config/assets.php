@@ -7,7 +7,7 @@
  */
 
 return [
-    'path_bower' => '/bower_components/metronic-theme',
+    'path_bower' => '/metronic-theme',
     'auth_logo' => '/assets/app/media/img/logos/logo-1.png',
     'favicon' => '/assets/demo/default/media/img/logo/favicon.ico',
     'dark_logo' => '/assets/demo/default/media/img/logo/logo_default_dark.png',

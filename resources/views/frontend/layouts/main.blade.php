@@ -26,7 +26,7 @@
           rel="stylesheet" type="text/css"/>
     <!--end::Global Theme Styles -->
     <!--begin::Page Vendors Styles -->
-    <link href="{{ asset('/bower_components/metronic-theme/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}"
+    <link href="{{ asset('/metronic-theme/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}"
           rel="stylesheet" type="text/css"/>
     <!--end::Page Vendors Styles -->
     <link rel="shortcut icon"
@@ -79,7 +79,7 @@
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Vendors -->
-<script src="{{ asset('/bower_components/metronic-theme/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"
+<script src="{{ asset('/metronic-theme/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"
         type="text/javascript"></script>
 <script src="{{ asset('/js/client/main.js') }}"
         type="text/javascript"></script>

@@ -16,9 +16,7 @@
                     <th class="stl-column color-column">{{ __('trans.Name') }}</th> 
                     <th class="stl-column color-column">{{ __('trans.Email') }}</th>              
                     <th class="stl-column color-column">{{ __('trans.Avatar') }}</th> 
-                    <th class="stl-column color-column">{{ __('trans.Role') }}</th>              
-                    <th class="stl-column color-column">{{ __('trans.Exp') }}</th>              
-                    <th class="stl-column color-column">{{ __('trans.Point') }}</th>              
+                    <th class="stl-column color-column">{{ __('trans.Role') }}</th>                     
                     <th class="stl-column color-column">{{ __('trans.Deactive/active') }}</th>
                     <th class="stl-column color-column">{{ __('trans.Date create') }}</th>
                 </tr>

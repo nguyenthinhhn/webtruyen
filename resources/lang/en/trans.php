@@ -102,4 +102,10 @@ return [
     'unfollow' => 'unfollow',
     'Login' => 'Login',
     'No chapter' => 'No chapter',
+    'Update profile' => 'Update profile',
+    'Change password' => 'Change password',
+    'User name' => 'User name',
+    'Full name' => 'Full name',
+    'New password' => 'New password',
+    'Confirm password' => 'Confirm password',
 ];

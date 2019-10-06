@@ -1,0 +1,17 @@
+{
+  "name": "metronic-theme",
+  "version": "5.5.5",
+  "authors": [
+    "Ngoc Thien <thien181996@gmail.com>"
+  ],
+  "description": "Theme metronic",
+  "main": "/",
+  "keywords": [
+    "metronic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/thien181996/metronic.git",
+  "ignore": [
+    "README.md"
+  ]
+}

@@ -43,8 +43,6 @@ $(function() {
         { data: 'email', name: 'email' },
         { data: 'avatar', name: 'avatar' },
         { data: 'role', name: 'role' },
-        { data: 'exp', name: 'exp' },
-        { data: 'point', name: 'point' },
         { data: 'status', name: 'status' },
         { data: 'created_at', name: 'created_at' },
         ]

@@ -100,6 +100,41 @@
                                     </div>
                                 </div>
                             </li>
+                            <li class="m-nav__item m-dropdown m-dropdown--small m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+                                    m-dropdown-toggle="click">
+                                    <a href="#" class="m-nav__link m-dropdown__toggle">
+                                        <span class="m-topbar__userpic">
+                                            <img src="{{ config('assets.path_bower') . '/countrys-flags/png/' . config('language.' . session('language') . '.icon') }}"
+                                                 class="m--img-rounded m--marginless m--img-centered"
+                                                 alt=""/>
+                                        </span>
+                                    </a>
+                                    <div class="m-dropdown__wrapper">
+                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                        <div class="m-dropdown__inner">
+                                            <div class="m-dropdown__header m--align-center">
+                                                <h5>@lang('frontend.language')</h5>
+                                            </div>
+                                            <div class="m-dropdown__body">
+                                                <div class="m-dropdown__content">
+                                                    <ul class="m-nav m-nav--skin-light">
+                                                        @foreach(config('language') as $key => $lang)
+                                                            <li class="m-nav__item {{ session('language') == $key ? 'm-nav__item--active' : null }}">
+                                                                <a href="{{ route('client.language', ['lang' => $key]) }}"
+                                                                   class="m-nav__link {{ session('language') == $key ? 'm-nav__item--active' : null }}">
+                                                                <span class="m-nav__link-icon">
+                                                                    <img style="width:30px" class="m-topbar__language-img"
+                                                                         src="{{ config('assets.path_bower') . '/countrys-flags/png/' . $lang['icon'] }}"></span>
+                                                                    <span class="m-nav__link-title m-topbar__language-text m-nav__link-text">@lang('frontend.lang.' . $key)</span>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                         </ul>
                     </div>
                 </div>

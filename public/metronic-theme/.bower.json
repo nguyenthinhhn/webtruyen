@@ -1,0 +1,25 @@
+{
+  "name": "metronic-theme",
+  "authors": [
+    "Ngoc Thien <thien181996@gmail.com>"
+  ],
+  "description": "Theme metronic",
+  "main": "/",
+  "keywords": [
+    "metronic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/thien181996/metronic.git",
+  "ignore": [
+    "README.md"
+  ],
+  "_release": "fbb8e0090b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "fbb8e0090b65d60a28ee0f82051c33004554309a"
+  },
+  "_source": "https://github.com/thien181996/metronic.git",
+  "_target": "*",
+  "_originalSource": "metronic-nt"
+}
