@@ -32,12 +32,15 @@ class PermissionsTableSeeder extends Seeder
         ]);
         Permission::create([
             'code' => 'manage-role',
-            'title' => 'Phân quyền',      
+            'title' => 'Quyền quản lý quyền',      
         ]);
         Permission::create([
             'code' => 'manage-reader',
-            'title' => 'Độc giả',      
+            'title' => 'Quyền quản lý độc giả',      
         ]);
-        
+        Permission::create([
+            'code' => 'manage-database',
+            'title' => 'Quản lý dữ liệu',      
+        ]);   
     }
 }

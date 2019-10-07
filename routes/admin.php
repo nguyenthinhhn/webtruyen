@@ -21,7 +21,8 @@ Route::middleware('auth')->group(function(){
         Route::post('/user/update', 'UserController@update');
         Route::get('/user/{id}/edit', 'UserController@edit');
     });
-    Route::get('/profile', 'UserController@profile')->name('admin.profile');;
+    Route::get('/profile', 'UserController@profile')->name('admin.profile');
+    Route::post('/profile/avatar', 'UserController@avatar')->name('admin.avatar');;
     Route::post('/user/profile', 'UserController@updateProfile');
     Route::post('/password', 'UserController@updatePassword');
 

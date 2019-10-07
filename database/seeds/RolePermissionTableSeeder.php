@@ -14,7 +14,7 @@ class RolePermissionTableSeeder extends Seeder
     {
         $roles = Role::all();
         foreach ($roles as $role) {
-            $role->permissions()->attach([1, 2, 3, 4, 5, 6]);
+            $role->permissions()->attach([1, 2, 3, 4, 5, 6, 7]);
         }
     }
 }

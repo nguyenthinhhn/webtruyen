@@ -122,4 +122,5 @@ return [
     'Full name' => 'Họ tên',
     'New password' => 'Mật khẩu mới',
     'Confirm password' => 'Xác nhận mật khẩu',
+    'Save avatar' => 'Lưu avatar',
 ];

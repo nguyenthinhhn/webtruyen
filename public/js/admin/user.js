@@ -13,6 +13,21 @@ $('#avatar').change(function () {
     }
 })
 
+// upload image profile 
+$('#avatar_profile').on('click',function(){
+    $('#avatar_pr').click();
+})
+// hien thi anh profile
+$('#avatar_pr').change(function () {
+    if ($(this).val() != '') {
+        var reader = new FileReader();
+        reader.onload = function (e){
+            $('#avatar_profile').attr('src', e.target.result);             
+        }
+        reader.readAsDataURL(this.files[0]);
+    }
+})
+
 // upload image edit
 $('#avatar_show_edit').on('click',function(){
     $('#avatar_edit').click();
@@ -189,26 +204,49 @@ $('#editpass').on('submit',function(e){
     e.preventDefault();
     $pw1 = $('#pw2').val();
     $pw2 = $('#pw3').val();
-    if ($pw1 == $pw2) {
-        var formData = new FormData($(this)[0]);
-        $.ajax({
-            url: "/admin/password", 
-            data: formData,
-            type: 'post',
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                if (!data.error) {
-                    toastr.success(data.message);
-                } else {
-                    toastr.error(data.message);
+    if ($pw1.length >= 6 ) {
+        if ($pw1 == $pw2) {
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                url: "/admin/password", 
+                data: formData,
+                type: 'post',
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (!data.error) {
+                        toastr.success(data.message);
+                    } else {
+                        toastr.error(data.message);
+                    }
+                },
+                error: function (data) {
+                    toastr.error(data);
                 }
-            },
-            error: function (data) {
-                toastr.error(data);
-            }
-        })
-    } else {
-        toastr.error('The password is incorrect');
+            })
+        } else {
+            toastr.error('Mật khẩu xác nhận không khớp');
+        }
+    }else{
+        toastr.error('Mật khẩu phải dài hơn 5 ký tự');
     }
+});
+
+$('#update_avatar_profile').on('submit',function(e){
+    e.preventDefault();
+    var formData = new FormData($(this)[0]);
+    console.log(formData);
+    $.ajax({
+        url: "/admin/profile/avatar", 
+        data: formData,
+        type: 'post',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            toastr.success(data.message);
+        },
+        error: function (data) {
+            toastr.error(data);
+        }
+    })
 });

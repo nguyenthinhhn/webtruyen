@@ -7,6 +7,7 @@ use App\Repositories\UserRepository;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\User;
 use Auth;
 use Hash;
 
@@ -149,6 +150,19 @@ class UserController extends Controller
         return response()->json([
             'error' => true,
             'message' => __('trans.Edit error password'),
+        ]);
+    }
+    public function avatar(Request $request){
+        $result = User::find(Auth::user()->id);
+        if ($request->hasFile('avatar')) {     
+            $path = $request->file('avatar')->store('public/images');
+            $result->avatar = strstr( $path, '/');
+        }
+        $result->save();
+
+        return response()->json([
+            'error' => false,
+            'message' => 'Cập nhật avatar thành công',
         ]);
     }
 }

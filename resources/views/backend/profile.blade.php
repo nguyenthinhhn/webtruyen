@@ -13,11 +13,20 @@
                 <div class="m-portlet__body">
                     <div class="m-card-profile">
                         <div class="m-card-profile__pic">
-                            <div class="m-card-profile__pic-wrapper">
-                                <img src="{{ asset('storage') }}{{ $user->avatar }}" alt="" />
-                            </div>
+                            <form method="POST" action="" id="update_avatar_profile" role="form" data-toggle="validator" enctype="multipart/form-data">
+                                @csrf
+                                <div class="m-card-profile__pic-wrapper">
+                                    <img src="{{ asset('storage') }}{{ $user->avatar }}"  id="avatar_profile" alt="" />
+                                    <div style="display: none">
+                                        <input type="file" id="avatar_pr" name="avatar"/>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">{{ __('trans.Save avatar') }}</button>
+                                </div>
+                             </form>
                         </div>
-                        <div class="m-card-profile__details">
+                        <div class="m-card-profile__details"><br>
                             <span class="m-card-profile__name">{{ $user->fullname }}</span>
                             <a href="" class="m-card-profile__email m-link">{{ $user->email }}</a>
                         </div>

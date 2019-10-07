@@ -9,14 +9,25 @@
                         <div class="m-card-profile__pic">
                             <div class="m-card-profile__pic-wrapper">
                                 @if(isset(Auth::user()->avatar))
-                                    <img src="{{ '/storage' . Auth::user()->avatar }}"
+                                    <img id="avatar_profile" src="{{ '/storage' . Auth::user()->avatar }}"
                                      alt=""/>
                                 @else
-                                    <img src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
+                                    <img id="avatar_profile" src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
                                      alt=""/>
                                 @endif
                             </div>
                         </div>
+                         <form method="POST" action="" id="update_avatar_profile" role="form" data-toggle="validator" enctype="multipart/form-data">
+                                @csrf
+                                <div class="m-card-profile__pic-wrapper">
+                                    <div style="display: none">
+                                        <input type="file" id="avatar_pr" name="avatar"/>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">{{ __('trans.Save avatar') }}</button>
+                                </div>
+                            </form>
                         <div class="m-card-profile__details">
                             <span class="m-card-profile__name">{{ Auth::user()->fullname }}</span>
                             <a href="" class="m-card-profile__email m-link">{{ Auth::user()->email }}</a>
@@ -70,4 +81,7 @@
         </div>
     </div>
 
+@endsection
+@section('footer')
+<script type="text/javascript" src="{{ asset('js/admin/user.js') }}"></script>
 @endsection
