@@ -7,7 +7,7 @@
 @section('content')
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 m-portlet__body">
-        <h4 class="m--font-primary"><a href="/"><b>{{ __('trans.Home') }}</b></a> >> {{ $manga->name }}</h4><br>
+        <h4 class="m--font-primary"><a href="/"><b> {{ __('trans.Home') }}</b></a> >> {{ $manga->name }}</h4><br>
         <h3 class="text-center m--font-success text-uppercase">{{ $manga->name }}</h3><br>
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -18,7 +18,7 @@
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <ul class="list-info">
                     <li class="author row">
-                        <p class="name col-xs-4 "><i class="fa fa-user"></i>{{ __('trans.Author') }} :</p> &nbsp
+                        <p class="name col-xs-4 "><i class="fa fa-user"></i> {{ __('trans.Author') }} :</p> &nbsp
                         @foreach ($manga->authors as $author)
                         <a href="" class="col-xs-8">{{ $author->name }} &nbsp</a>
                         @endforeach
@@ -40,108 +40,111 @@
                     <li class="row">
                         <p class="name col-xs-4">{{ $manga->created_at->diffForHumans() }}</p>
                     </li>
+                    <li class="row">
+                        <div>{{ __('trans.Ranking') }}: <rating v-bind:manga_id="{{ $manga->id }}" v-bind:manga_rate="{{ $manga->total_rate ? $manga->rate / $manga->total_rate : 0 }}"></rating><br>
+                            <div>
+                                @if ($status == 0)
+                                <p class="follow-link btn btn-success" onclick="follow({{ $manga->id }})" ><i class="fa fa-heart"></i> {{ __('trans.Follow') }}</p>
+                                @else
+                                <p class="follow-link btn btn-warning" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
+                                @endif
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <div>{{ __('trans.Ranking') }}: <rating v-bind:manga_id="{{ $manga->id }}" v-bind:manga_rate="{{ $manga->total_rate ? $manga->rate / $manga->total_rate : 0 }}"></rating><br>
-                
-                <div>
-                    @if ($status == 0)
-                    <p class="follow-link btn btn-success" onclick="follow({{ $manga->id }})" ><i class="fa fa-heart"></i> {{ __('trans.Follow') }}</p>
-                    @else
-                    <p class="follow-link btn btn-warning" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
-                    @endif
-                </div>
-            </div><br><br>
-        </div><br>
-        <h3 class="m--font-warning">{{ __('trans.Content') }}</h3><hr>
-        <h6>{{ $manga->description }}</h6><br>
-
-        <h3 class="m--font-warning">{{ __('trans.Chapter') }}</h3><hr>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>{{ __('trans.Chapter') }}</th>
-                    <th>{{ __('trans.View') }}</th>
-                    <th>{{ __('trans.Description') }}</th>
-                    <th>{{ __('trans.Date create') }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($manga->chapters as $chapter)
-                <tr>
-                    <td><a href="{{ asset('manga') }}/{{ $manga->slug }}/{{ $chapter->slug }}">{{ $chapter->name }}</a></td>
-                    <td>{{ $chapter->view }}</td>
-                    <td>{{ $chapter->description }}</td>
-                    <td>{{ $chapter->created_at->diffForHumans() }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        
-        <div class="m-portlet__body width100">
-            @if(empty($manga->chapters[0]))
-                <h5 class="text-center">{{ __('trans.No chapter') }}</h5>
-            @endif
-            <div class="m-widget3">
-                @foreach ($manga->comments as $comment)
-                <div class="m-widget3__item">
-                    <div class="m-widget3__header">
-                        <div class="m-widget3__user-img">
-                            <img class="m-widget3__img" src="{{ '/storage' . $comment->user->avatar }}" alt="">
-                        </div>
-                        <div class="m-widget3__info">
-                            <span class="m-widget3__username">
-                                {{ $comment->user->fullname }}
-                            </span><br>
-                            <span class="m-widget3__time">
-                                {{ $comment->created_at->diffForHumans() }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="m-widget3__body">
-                        <p class="m-widget3__text">
-                            {{ $comment->content }}
-                        </p>
-                    </div>
-                </div>
-                @endforeach
-                <div id="append"></div>
-
-                @if (!empty(Auth::user()))
-                <div class="m-widget3__item">
-                    <div class="m-widget3__header">
-                        <div class="m-widget3__user-img">
-                            @if(isset(Auth::user()->avatar))
-                                <img class="m-widget3__img" src="{{ '/storage' . Auth::user()->avatar }}"
-                                     alt=""/>
-                            @else
-                                <img class="m-widget3__img" src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
-                                     alt=""/>
-                            @endif
-
-                        </div>
-                        <div class="m-widget3__info">
-                            <span class="m-widget3__username">
-                                {{ Auth::user()->fullname }}
-                            </span><br>
-                        </div>
-                    </div>
-                    <div class="m-widget3__body">
-                        <form action="" id="comment" method="post" role="form">
-                            @csrf
-                            <p class="m-widget3__text">
-                                <textarea class="form-control m-input" name="content" id="exampleTextarea" rows="2"></textarea>
-                            </p>
-                            <input type="hidden" name="manga_id" value="{{ $manga->id }}">
-                            <button type="submit" class="btn btn-primary">{{ __('trans.Save') }}</button>
-                        </form>
-                    </div>
-                </div>
-
-                @endif
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="m--font-warning">{{ __('trans.Content') }}</h3><hr>
+                <h6>{{ $manga->description }}</h6>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="m--font-warning">{{ __('trans.Chapter') }}</h3><hr>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ __('trans.Chapter') }}</th>
+                            <th>{{ __('trans.View') }}</th>
+                            <th>{{ __('trans.Description') }}</th>
+                            <th>{{ __('trans.Date create') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($manga->chapters as $chapter)
+                        <tr>
+                            <td><a href="{{ asset('manga') }}/{{ $manga->slug }}/{{ $chapter->slug }}">{{ $chapter->name }}</a></td>
+                            <td>{{ $chapter->view }}</td>
+                            <td>{{ $chapter->description }}</td>
+                            <td>{{ $chapter->created_at->diffForHumans() }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="m-portlet__body width100">
+                    @if(empty($manga->chapters[0]))
+                        <h5 class="text-center">{{ __('trans.No chapter') }}</h5>
+                    @endif
+                    <div class="m-widget3">
+                        @foreach ($manga->comments as $comment)
+                        <div class="m-widget3__item">
+                            <div class="m-widget3__header">
+                                <div class="m-widget3__user-img">
+                                    <img class="m-widget3__img" src="{{ '/storage' . $comment->user->avatar }}" alt="">
+                                </div>
+                                <div class="m-widget3__info" style="color: #5867dd">
+                                    <b class="">
+                                        {{ $comment->user->fullname }}
+                                    </b><br>
+                                    <span class="">
+                                        {{ $comment->created_at->diffForHumans() }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="m-widget3__body">
+                                <p class="m-widget3__text">
+                                    {{ $comment->content }}
+                                </p>
+                            </div>
+                        </div>
+                        @endforeach
+                        <div id="append"></div>
+
+                        @if (!empty(Auth::user()))
+                        <div class="m-widget3__item">
+                            <div class="m-widget3__header">
+                                <div class="m-widget3__user-img">
+                                    @if(isset(Auth::user()->avatar))
+                                        <img class="m-widget3__img" src="{{ '/storage' . Auth::user()->avatar }}"
+                                             alt=""/>
+                                    @else
+                                        <img class="m-widget3__img" src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
+                                             alt=""/>
+                                    @endif
+
+                                </div>
+                                <div class="m-widget3__info">
+                                    <span class="m-widget3__username">
+                                        {{ Auth::user()->fullname }}
+                                    </span><br>
+                                </div>
+                            </div>
+                            <div class="m-widget3__body">
+                                <form action="" id="comment" method="post" role="form">
+                                    @csrf
+                                    <p class="m-widget3__text">
+                                        <textarea class="form-control m-input" name="content" id="exampleTextarea" rows="2"></textarea>
+                                    </p>
+                                    <input type="hidden" name="manga_id" value="{{ $manga->id }}">
+                                    <button type="submit" class="btn btn-primary">{{ __('trans.Save') }}</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 m-portlet" id="menuright">
         <div class="m-portlet__body"> 
