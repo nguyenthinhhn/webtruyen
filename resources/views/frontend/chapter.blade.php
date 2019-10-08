@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-<div class="bg75">
-    <div class="cont">
+    <div class="cont col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <br>
         <div class="alert alert-info" role="alert">
             <h2><strong>{{ $manga->name}} - </strong> {{ $chapter->name }}</h2>
@@ -21,7 +20,6 @@
             @endif
         @endforeach
     </div>
-</div>
 @endsection
 
 @section('footer')

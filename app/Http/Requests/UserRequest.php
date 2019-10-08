@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             'email' => 'required|max:255|unique:users',
             'password1_add' => 'required|min:5',
-            'username' => 'required|min:5',
+            'username' => 'required|min:5|unique:users',
             'fullname' => 'required|min:5',
         ];
     }
@@ -41,6 +41,7 @@ class UserRequest extends FormRequest
             'password1_add.min' => __('trans.Password is too short'),
             'username.min' => __('trans.username min'),
             'username.required' => __('trans.username required'),
+            'username.unique' => __('trans.username is unique'),
             'fullname.min' => __('trans.fullname min'),
             'fullname.required' => __('trans.fullname required'),
         ];

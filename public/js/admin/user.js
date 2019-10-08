@@ -92,10 +92,14 @@ function deleteUser($id){
                 type: 'get',
                 url: '/admin/user/delete/' + $id,
                 success: function(res) {
-                    swal("Xóa Thành công", {
-                        icon: "success",
-                    });
-                    $('#users-table').DataTable().ajax.reload();
+                    if (!res.error) {
+                        swal("Xóa thành công", {
+                            icon: "success",
+                        });
+                        $('#users-table').DataTable().ajax.reload();
+                    } else {
+                        toastr.error("Không thể xóa tài khoàn này");
+                    }
                 }
             });
         }
@@ -106,30 +110,34 @@ $('#user_add').on('submit',function(e){
     e.preventDefault();
     $pw1 = $('#password1_add').val();
     $pw2 = $('#password2_add').val();
-    if ($pw1 == $pw2) {
-        var formData = new FormData($(this)[0]);
-        $.ajax({
-            url: "/admin/user/store", 
-            data: formData,
-            type: 'post',
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                $('#modal-add').modal('hide');
-                $('#users-table').DataTable().ajax.reload();
-                swal( data.message , {
-                    icon: "success",
-                });                     
-            },
-            error: function (data) {
-                jQuery.each(data.responseJSON.errors, function(key, value){
-                    toastr.error(value) 
-                }); 
-            }
-        })
+    if ($pw1.length >= 6 ) {
+        if ($pw1 == $pw2) {
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                url: "/admin/user/store", 
+                data: formData,
+                type: 'post',
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $('#modal-add').modal('hide');
+                    $('#users-table').DataTable().ajax.reload();
+                    swal( data.message , {
+                        icon: "success",
+                    });                     
+                },
+                error: function (data) {
+                    jQuery.each(data.responseJSON.errors, function(key, value){
+                        toastr.error(value) 
+                    }); 
+                }
+            })
+        } else {
+            toastr.error('Mật khẩu xác nhận không khớp');
+        }
     } else {
-        toastr.error('The password is incorrect');
-    } 
+        toastr.error('Mật khẩu phải dài hơn 5 ký tự');
+    }
 });
 
 function edit($id){

@@ -1,5 +1,3 @@
-CKEDITOR.replace('content');
-CKEDITOR.replace('content_edit');
 // upload image
 $('#avatar_show_add').on('click',function(){
     $('#avatar').click();

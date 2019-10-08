@@ -123,4 +123,16 @@ return [
     'New password' => 'Mật khẩu mới',
     'Confirm password' => 'Xác nhận mật khẩu',
     'Save avatar' => 'Lưu avatar',
+
+    'username is unique' => 'Tên tài khoàn đã có người sử dụng',
+    'name category required' => 'Tên thể loại không được rỗng',
+    'slug required' => 'Slug không được rỗng',
+    'title required' => 'Tiêu đề không được rỗng',
+    'description is required' => 'Mô tả không được rỗng',
+    'name category unique' => 'Tên thể loại phải là duy nhất',
+    'slug unique' => 'Slug phải là duy nhất',
+    'Rate' => 'tổng điểm đánh giá',
+    'Total rate' => 'Số lượt đánh giá',
+    'name manga is unique' => 'Tên truyện phải là duy nhất',
+    'name chapter is unique' => 'Tên chương truyện phải là duy nhất',
 ];

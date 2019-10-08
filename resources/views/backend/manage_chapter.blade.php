@@ -113,8 +113,15 @@
 @endsection
 
 @section('footer')
+<script type="text/javascript" src="{{ asset('js/ckfinder/ckfinder.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/admin/chapter.js') }}"></script>
 <script type="text/javascript">
+    CKEDITOR.replace( 'content', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+    } );
+    CKEDITOR.replace( 'content_edit', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
 
+    } );
 </script>
 @endsection

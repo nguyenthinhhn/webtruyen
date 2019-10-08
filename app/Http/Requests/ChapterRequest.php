@@ -21,8 +21,8 @@
     {
         return [
             'description' => 'required',
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required|unique:chapters',
+            'slug' => 'required|unique:chapters',
             'content' => 'required',
         ];
     }
@@ -31,7 +31,9 @@
         return [
             'description.required' => __('trans.description required'),
             'name.required' => __('trans.name required'),
+            'name.unique' => __('trans.name chapter is unique'),
             'slug.required' => __('trans.slug required'),
+            'slug.unique' => __('trans.slug is unique'),
             'content.required' => __('trans.content required'),
         ];
     }

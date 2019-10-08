@@ -59,27 +59,27 @@
                                         <div id="form-step-0" role="form" data-toggle="validator">
                                             <div class="form-group">
                                                 <label for="">{{ __('trans.Account') }}<span class="clred"> (*) </span></label>
-                                                <input type="text" class="form-control" name="username" id="username_add" placeholder="Tài khoản đăng nhập" required>
+                                                <input type="text" class="form-control" name="username" id="username_add" placeholder="Tài khoản đăng nhập">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">{{ __('trans.Name') }}<span class="clred"> (*) </span></label>
-                                                <input type="text" class="form-control" name="fullname" id="fullname_add" placeholder="Họ và tên" required>
+                                                <input type="text" class="form-control" name="fullname" id="fullname_add" placeholder="Họ và tên">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">{{ __('trans.Email') }}<span class="clred"> (*) </span></label>
-                                                <input type="email" class="form-control" name="email" id="email_add" placeholder="Email" required>
+                                                <input type="email" class="form-control" name="email" id="email_add" placeholder="Email">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">{{ __('trans.Password') }}<span class="clred"> (*) </span></label>
-                                                <input type="password" class="form-control" name="password1_add" id="password1_add" required>
+                                                <input type="password" class="form-control" name="password1_add" id="password1_add">
                                                         <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">{{ __('trans.Password confirm') }}<span class="clred"> (*) </span></label>
-                                                <input type="password" class="form-control" name="password2_add" id="password2_add" required>
+                                                <input type="password" class="form-control" name="password2_add" id="password2_add">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
