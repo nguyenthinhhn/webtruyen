@@ -47,8 +47,10 @@
                             <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
                                 m-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle"> 
-                                    <span class="m-topbar__userpic">   
-                                        <img src="{{ Auth::user()->avatar ? config('assets.storage') . Auth::user()->avatar : asset(config('assets.path_bower') . '/assets/app/media/img/users/user4.jpg') }}" class="m--img-rounded m--marginless" alt=""/>
+                                    <span class="m-topbar__userpic">
+                                        <b class="m-topbar__userpic">   
+                                            {{ Auth::user()->fullname }}
+                                        </b>
                                     </span>
                                 </a>
                                 <div class="m-dropdown__wrapper">

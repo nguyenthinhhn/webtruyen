@@ -24,7 +24,7 @@ class MangaRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:mangas',
             'slug' => 'required',
             'description' => 'required',
             'image' => 'required',
@@ -34,6 +34,7 @@ class MangaRequest extends FormRequest
     {
         return [
             'name.required' => __('trans.name required'),
+            'name.unique' => __('trans.name manga is unique'),
             'slug.required' => __('trans.slug required'),
             'description.required' => __('trans.description required'),
             'image.required' => __('trans.image required'),

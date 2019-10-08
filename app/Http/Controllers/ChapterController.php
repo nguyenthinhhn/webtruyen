@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\ChapterRepository;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\ChapterRequest;
+use App\Http\Requests\ChapterupdateRequest;
 
 class ChapterController extends Controller
 {
@@ -70,7 +71,7 @@ class ChapterController extends Controller
         return $result;
     }
 
-    public function update(ChapterRequest $request) {
+    public function update(ChapterupdateRequest $request) {
         $result = $this->chapterRepository->update($request->id, $request->all());
 
         return response()->json([

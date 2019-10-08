@@ -21,21 +21,21 @@
     public function rules()
     {
         return [
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => 'required|unique:categories',
+            'slug' => 'required|unique:categories',
             'meta_title' => 'required',
             'meta_description' => 'required',
-            'meta_keywords' => 'required',
         ];
     }
      public function messages()
     {
         return [
-            'name.required' => __('trans.name required'),
+            'name.required' => __('trans.name category required'),
+            'name.unique' => __('trans.name category unique'),
             'slug.required' => __('trans.slug required'),
+            'slug.unique' => __('trans.slug unique'),
             'meta_title.required' => __('trans.title required'),
             'meta_description.required' => __('trans.description is required'),
-            'meta_keywords.required' => __('trans.meta_keywords is required'),
         ];
     }
 }

@@ -90,9 +90,18 @@ class UserController extends Controller
     }
 
     public function delete($id) {
-        $result = $this->userRepository->delete($id);
+        if (Auth::user()->id != $id) {
+            $result = $this->userRepository->delete($id);
 
-        return response()->json();
+            return response()->json([
+                'error' => false,
+            ]);
+
+        } else {
+            return response()->json([
+            'error' => true,
+        ]);
+        }
     }
     
     public function store(UserRequest $request) {
