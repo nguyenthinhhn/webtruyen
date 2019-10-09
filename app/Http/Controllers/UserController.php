@@ -134,7 +134,7 @@ class UserController extends Controller
         return view('backend.profile', compact('user'));    
     }
 
-    public function updateProfile(Request $request)
+    public function updateProfile(UserUpdateRequest $request)
     {
         $result = $this->userRepository->update(Auth::user()->id, $request->all());
 

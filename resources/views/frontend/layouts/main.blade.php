@@ -31,6 +31,8 @@
     <!--end::Page Vendors Styles -->
     <link rel="shortcut icon"
           href="{{ asset(config('assets.path_bower').config('assets.favicon')) }}"/>
+        <link href="{{ asset('/bower_components/datatables.net-dt/css/jquery.dataTables.min.css') }}"
+          rel="stylesheet" type="text/css"/>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     @yield('css_init')
     @yield('head')
@@ -81,10 +83,18 @@
 <!--begin::Page Vendors -->
 <script src="{{ asset('/metronic-theme/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"
         type="text/javascript"></script>
+        
 <script src="{{ asset('/js/client/main.js') }}"
         type="text/javascript"></script>
 <script src="{{ asset('/js/lang.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/app.js') }}" defer></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 <!--end::Page Vendors -->
 <!--begin::Page Scripts -->
 @yield('js_init')

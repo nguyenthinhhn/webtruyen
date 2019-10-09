@@ -10,7 +10,9 @@
         <div class="alert alert-info" role="alert">
             <h2><strong>{{ $manga->name}} - </strong> {{ $chapter->name }}</h2>
         </div>
-        {!! $chapter->content !!}
+        <div class="thumbnail">
+            {!! $chapter->content !!}
+        </div>
         <br>
         @foreach ($listchapter as $chap)
             @if ($chap->slug == $chapter->slug)

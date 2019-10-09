@@ -89,7 +89,12 @@
                         <div class="m-widget3__item">
                             <div class="m-widget3__header">
                                 <div class="m-widget3__user-img">
-                                    <img class="m-widget3__img" src="{{ '/storage' . $comment->user->avatar }}" alt="">
+                                    @if(isset($comment->user->avatar))
+                                        <img class="m-widget3__img" src="{{ '/storage' . $comment->user->avatar }}" alt="">
+                                    @else
+                                        <img class="m-widget3__img" src="{{ asset('images/avatar_default.png') }}"
+                                             alt=""/>
+                                    @endif
                                 </div>
                                 <div class="m-widget3__info" style="color: #5867dd">
                                     <b class="">
@@ -117,7 +122,7 @@
                                         <img class="m-widget3__img" src="{{ '/storage' . Auth::user()->avatar }}"
                                              alt=""/>
                                     @else
-                                        <img class="m-widget3__img" src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
+                                        <img class="m-widget3__img" src="{{ asset('images/avatar_default.png') }}"
                                              alt=""/>
                                     @endif
 
