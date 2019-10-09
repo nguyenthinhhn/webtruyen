@@ -4,7 +4,10 @@
 .cont{
 	text-align: center;
 }
-p image{
-	width: 100% !important;
+p img{
+	width :100% !important;
 	height: auto !important;
+}
+body {
+    background-color: #737375;
 }
