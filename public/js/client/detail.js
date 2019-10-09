@@ -8,7 +8,12 @@ $('body').on('submit','#comment', function(e){
         contentType: false,
         processData: false,
         success: function (data) {
-            $("#append").append("<div class='m-widget3__item'><div class='m-widget3__header'><div class='m-widget3__user-img'><img class='m-widget3__img' src='/storage/" + data.avatar + "' alt=''></div><div class='m-widget3__info'><span class='m-widget3__username'>" + data.username + "</span><br><span class='m-widget3__time'>Vừa xong</span></div></div><div class='m-widget3__body'><p class='m-widget3__text'>" + data.content + "</p></div></div>");
+            if(data.avatar == null) {
+                data.avatar = "images/avatar_default.png"
+            } else {
+                data.avatar = "storage/" + data.avatar
+            }
+            $("#append").append("<div class='m-widget3__item'><div class='m-widget3__header'><div class='m-widget3__user-img'><img class='m-widget3__img' src='/" + data.avatar + "' alt=''></div><div class='m-widget3__info'><span class='m-widget3__username'>" + data.username + "</span><br><span class='m-widget3__time'>Vừa xong</span></div></div><div class='m-widget3__body'><p class='m-widget3__text'>" + data.content + "</p></div></div>");
         },
         error: function (data) {
             toastr.error(data) 
@@ -24,11 +29,13 @@ function follow($id)
         contentType: false,
         processData: false,
         success: function (data) {
+            console.log(data);
             if (data.error)
             {
-                toastr.success(data) 
+                toastr.error(data.message) 
             } else {
-                toastr.success(data) 
+                toastr.success(data.message)
+                setTimeout(function(){ location.reload() }, 1000);
             }
         },
         error: function (data) {

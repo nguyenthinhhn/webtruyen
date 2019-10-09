@@ -40,7 +40,7 @@ class HomeController extends Controller
         $suggest = $this->mangaRepository->getCategory($manga->categories[0]->slug);
         $view = $this->mangaRepository->countView($manga);
         $status = 0;
-        if (!empty(session('users'))) {
+        if (!empty(Auth::user())) {
             $status = $this->mangaRepository->checkFollow($manga->id);
         }
 
@@ -66,7 +66,6 @@ class HomeController extends Controller
     public function follow($id)
     {
         if (empty(Auth::user())) {
-
             return response()->json([
                 'error' => true,
                 'message' => __('trans.is login'),
@@ -75,11 +74,15 @@ class HomeController extends Controller
         $result = $this->mangaRepository->follow($id);
 
         if ($result) {
-
-            return __('trans.Is follow');
+            return response()->json([
+                'error' => false,
+                'message' => __('trans.Is follow'),
+            ]);
         } else {
-
-            return __('trans.unfollow');
+            return response()->json([
+                'error' => false,
+                'message' => __('trans.unfollow'),
+            ]);
         }
     }
 

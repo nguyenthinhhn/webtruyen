@@ -151,13 +151,12 @@
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
                                         <span class="m-topbar__userpic">
                                             @if(isset(Auth::user()->avatar))
-                                            <img src="{{ '/storage' . Auth::user()->avatar }}"
+                                                <img src="{{ '/storage' . Auth::user()->avatar }}"
                                                  class="m--img-rounded m--marginless m--img-centered"
                                                  alt=""/>
                                             @else
-                                                <img src="{{ asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
-                                                 class="m--img-rounded m--marginless m--img-centered"
-                                                 alt=""/>
+                                                <img class="m-widget3__img" id="avatar_profile" src="{{ asset('images/avatar_default.png') }}"
+                                             alt=""/>
                                             @endif
                                         </span>
                                             <span class="m-nav__link-icon m-topbar__usericon m--hide">
@@ -172,8 +171,14 @@
                                                 <div class="m-dropdown__header m--align-center">
                                                     <div class="m-card-user m-card-user--skin-light">
                                                         <div class="m-card-user__pic">
-                                                            <img src="{{ Auth::user()->avatar ?? asset(config('assets.path_bower') . '/demo10/assets/app/media/img/users/user4.jpg') }}"
-                                                                 class="m--img-rounded m--marginless" alt=""/>
+                                                           @if(isset(Auth::user()->avatar))
+                                                                <img src="{{ '/storage' . Auth::user()->avatar }}"
+                                                                 class="m--img-rounded m--marginless m--img-centered"
+                                                                 alt=""/>
+                                                            @else
+                                                                <img class="m-widget3__img" id="avatar_profile" src="{{ asset('images/avatar_default.png') }}"
+                                                             alt=""/>
+                                                            @endif
                                                         </div>
                                                         <div class="m-card-user__details">
                                                             <span class="m-card-user__name m--font-weight-500">{{ Auth::user()->fullname }}</span>

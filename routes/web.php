@@ -35,5 +35,5 @@ Route::get('/follow', 'Client\HomeController@listFollow')->name('client.listfoll
 Route::post('/search', 'Client\HomeController@searchFullText')->name('search');
 Route::get('/language/{lang}', 'Client\HomeController@switchLanguage')->name('client.language');
 Route::get('/profile', 'Client\ProfileController@profile')->name('client.profile');
-Route::get('/manga_follow', 'Client\ProfileController@mangaFollow')->name('client.profile.follow');
+Route::get('/manga_follow', 'Client\ProfileController@profile')->name('client.profile.follow');
 Route::post('/profile', 'Client\ProfileController@saveProfile')->name('client.profile.save');

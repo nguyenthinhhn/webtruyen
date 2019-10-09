@@ -22,9 +22,12 @@ class ProfileController extends Controller
 
     public function profile()
     {
+        if (empty(Auth::user())) {
+            return response()->view('errors/404');
+        }
         $user = Auth::user();
 
-        return view('frontend.profile.info', [
+        return view('frontend.profile', [
             'user' => $user,
         ]);
     }
@@ -51,16 +54,5 @@ class ProfileController extends Controller
                 'data' => null,
             ],
         ]);
-    }
-
-    public function mangaFollow()
-    {
-        if (empty(Auth::user())) {
-
-            return response()->view('errors/404');
-        }
-        $mangas = Auth::user()->mangas;
-
-        return view('frontend.profile.follow', ['mangas' => $mangas]);
     }
 }

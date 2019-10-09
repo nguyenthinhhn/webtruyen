@@ -1,12 +1,10 @@
-@extends('backend.layouts.main')
+@extends('frontend.layouts.main')
 
 @section('head')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/admin/user.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/home.css') }}">
 @endsection
 
 @section('content')
-<!-- END: Subheader -->
-<div class="m-content">
     <div class="row">
         <div class="col-xl-3 col-lg-4">
             <div class="m-portlet m-portlet--full-height  ">
@@ -17,7 +15,7 @@
                                 @csrf
                                 <div class="m-card-profile__pic-wrapper">
                                     @if(isset(Auth::user()->avatar))
-                                        <img src="{{ asset('storage') }}{{ $user->avatar }}"  id="avatar_profile" alt="" />
+                                        <img src="{{ asset('storage') }}{{ $user->avatar }}" id="avatar_profile" alt="" />
                                     @else
                                         <img class="m-widget3__img" id="avatar_profile" src="{{ asset('images/avatar_default.png') }}"
                                                  alt=""/>
@@ -56,7 +54,7 @@
                             <li class="nav-item m-tabs__item">
                                 <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
                                     <i class="flaticon-share m--hide"></i>
-                                    {{ __('trans.Update profile') }}
+                                    Truyện theo dõi
                                 </a>
                             </li>
                             <li class="nav-item m-tabs__item">
@@ -64,45 +62,44 @@
                                     {{ __('trans.Change password') }}
                                 </a>
                             </li>
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
+                                    <i class="flaticon-share m--hide"></i>
+                                    {{ __('trans.Update profile') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="m_user_profile_tab_1">
-                        <form class="m-form m-form--fit m-form--label-align-right" id='updateprofile'>
-                            <div class="m-portlet__body">
-                                @csrf
-                                <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.User name') }}</label>
-                                    <div class="col-7">
-                                        <input class="form-control m-input" type="text" value="{{ $user->username }}" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.Email') }}</label>
-                                    <div class="col-7">
-                                        <input class="form-control m-input" type="text" value="{{ $user->email }}" readonly>
-                                    </div>
-                                </div>    
-                                <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.Full name') }}</label>
-                                    <div class="col-7">
-                                        <input class="form-control m-input" name="fullname" type="text" value="{{ $user->fullname }}">
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="m-portlet__foot m-portlet__foot--fit">
-                                <div class="m-form__actions">
-                                    <div class="row">
-                                        <div class="col-2">
-                                        </div>
-                                        <div class="col-7">
-                                            <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">{{ __('trans.Save') }}</button>&nbsp;&nbsp;
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="tab-pane active" id="m_user_profile_tab_1"><br>
+                        <table class="table m-table m-table--head-bg-brand">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>@lang('frontend.manga_name')</th>
+                                <th>@lang('trans.Description')</th>
+                                <th>@lang('trans.View')</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($user->mangas as $manga)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        <a class="m-link"
+                                           href="{{ '/manga/' . $manga->slug }}">{{ $manga->name }}</a>
+                                    </td>
+                                    <td>
+                                        <span>{{ $manga->description }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ $manga->view }}</span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                     <div class="tab-pane " id="m_user_profile_tab_2">
                         <form class="m-form m-form--fit m-form--label-align-right" id="editpass">
@@ -139,13 +136,50 @@
                             </div>
                         </form>
                     </div>
+                    <div class="tab-pane" id="m_user_profile_tab_3">
+                        <form class="m-form m-form--fit m-form--label-align-right" id='updateprofile'>
+                            <div class="m-portlet__body">
+                                @csrf
+                                <div class="form-group m-form__group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.User name') }}</label>
+                                    <div class="col-7">
+                                        <input class="form-control m-input" type="text" value="{{ $user->username }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.Email') }}</label>
+                                    <div class="col-7">
+                                        <input class="form-control m-input" type="text" value="{{ $user->email }}" readonly>
+                                    </div>
+                                </div>    
+                                <div class="form-group m-form__group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">{{ __('trans.Full name') }}</label>
+                                    <div class="col-7">
+                                        <input class="form-control m-input" name="fullname" type="text" value="{{ $user->fullname }}">
+                                    </div>
+                                </div>    
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions">
+                                    <div class="row">
+                                        <div class="col-2">
+                                        </div>
+                                        <div class="col-7">
+                                            <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">{{ __('trans.Save') }}</button>&nbsp;&nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('footer')
-<script type="text/javascript" src="{{ asset('js/admin/user.js') }}"></script>
+<!-- Latest compiled and minified CSS & JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="{{ asset('js/client/profile.js') }}"></script>
 @endsection
