@@ -4,3 +4,7 @@
 .cont{
 	text-align: center;
 }
+p image{
+	width: 100% !important;
+	height: auto !important;
+}
