@@ -64,3 +64,7 @@ input:checked + .slider:before {
     width: 100px;
     border-radius: 50%;
 }
+
+.crusor:hover {
+    cursor: pointer;
+}
