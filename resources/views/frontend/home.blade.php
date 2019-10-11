@@ -54,7 +54,7 @@
             <br>
             <div><br><br>
             <div class="m-widget3">
-                <h4 class="colorh">{{ __('trans.Comment') }}</h4>
+                <h4 class="colorh">{{ __('trans.New comment') }}</h4>
                 @foreach ($comments as $comment) 
                 <div class="m-widget3__item">
                     <div class="m-widget3__header">

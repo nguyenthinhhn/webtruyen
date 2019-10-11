@@ -46,7 +46,7 @@
                                 @if ($status == 0)
                                 <p class="follow-link btn btn-info" onclick="follow({{ $manga->id }})" ><i class="fa fa-heart"></i> {{ __('trans.Follow') }}</p>
                                 @else
-                                <p class="follow-link btn btn-info" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
+                                <p class="follow-link btn btn-warning" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
                                 @endif
                             </div>
                         </div>
