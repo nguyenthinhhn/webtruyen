@@ -36,3 +36,13 @@
 .align-center {
     text-align: center;
 }
+
+.colorh{
+    color: #2961ff;
+}
+.colorwhite{
+    color: white !important;;
+}
+.paddingtop40{
+    padding-top: 40px;
+}

@@ -7,8 +7,8 @@
 @section('content')
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 m-portlet__body">
-        <h4 class="m--font-primary"><a href="/"><b> {{ __('trans.Home') }}</b></a> >> {{ $manga->name }}</h4><br>
-        <h3 class="text-center m--font-success text-uppercase">{{ $manga->name }}</h3><br>
+        <h4 class="colorh"><a href="/"><b class="colorh"> {{ __('trans.Home') }}</b></a> >> {{ $manga->name }}</h4><br>
+        <h3 class="text-center colorh text-uppercase">{{ $manga->name }}</h3><br>
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <a href="{{ asset('manga') }}/{{ $manga->slug }}">
@@ -44,9 +44,9 @@
                         <div>{{ __('trans.Ranking') }}: <rating v-bind:manga_id="{{ $manga->id }}" v-bind:manga_rate="{{ $manga->total_rate ? $manga->rate / $manga->total_rate : 0 }}"></rating><br>
                             <div>
                                 @if ($status == 0)
-                                <p class="follow-link btn btn-success" onclick="follow({{ $manga->id }})" ><i class="fa fa-heart"></i> {{ __('trans.Follow') }}</p>
+                                <p class="follow-link btn btn-info" onclick="follow({{ $manga->id }})" ><i class="fa fa-heart"></i> {{ __('trans.Follow') }}</p>
                                 @else
-                                <p class="follow-link btn btn-warning" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
+                                <p class="follow-link btn btn-info" onclick="follow({{ $manga->id }})"><i class="fas fa-minus-square"></i> {{ __('trans.UnFollow') }}</p>
                                 @endif
                             </div>
                         </div>
@@ -55,11 +55,11 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="m--font-warning">{{ __('trans.Content') }}</h3><hr>
+                <h3 class="colorh paddingtop40">{{ __('trans.Content') }}</h3><hr>
                 <h6>{{ $manga->description }}</h6>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h3 class="m--font-warning">{{ __('trans.Chapter') }}</h3><hr>
+                <h3 class="colorh">{{ __('trans.Chapter') }}</h3><hr>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -96,7 +96,7 @@
                                              alt=""/>
                                     @endif
                                 </div>
-                                <div class="m-widget3__info" style="color: #5867dd">
+                                <div class="m-widget3__info m--font-info">
                                     <b class="">
                                         {{ $comment->user->fullname }}
                                     </b><br>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="m-widget3__body">
-                                <p class="m-widget3__text">
+                                <p class="">
                                     {{ $comment->content }}
                                 </p>
                             </div>
@@ -128,9 +128,9 @@
 
                                 </div>
                                 <div class="m-widget3__info">
-                                    <span class="m-widget3__username">
+                                    <b class="m--font-info">
                                         {{ Auth::user()->fullname }}
-                                    </span><br>
+                                    </b><br>
                                 </div>
                             </div>
                             <div class="m-widget3__body">
@@ -153,7 +153,7 @@
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 m-portlet" id="menuright">
         <div class="m-portlet__body"> 
-            <h4 class="m--font-info">{{ __('trans.Top view manga') }}</h4><br>
+            <h4 class="colorh">{{ __('trans.Top view manga') }}</h4><br>
             @foreach ($top5view as $key => $manga)   
             <div class="row">
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -165,7 +165,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h6 class="m--font-brand"><a href="{{ asset('manga') }}/{{ $manga->slug }}">{{ $manga->name }}</a></h6>
+                    <h6><a  class="m--font-info" href="{{ asset('manga') }}/{{ $manga->slug }}">{{ $manga->name }}</a></h6>
                     <p>{{ $manga->created_at->diffForHumans() }}</p>
                     <i class="fa fa-eye"></i> {{ $manga->view }} &nbsp <i class="fa fa-comment"></i>&nbsp {{ $manga->count_comment }}
                 </div>
@@ -173,13 +173,13 @@
             <br>                                 
             @endforeach
 
-            <h4 class="m--font-warning">{{ __('trans.Category') }}</h4><br>
+            <h4 class="colorh">{{ __('trans.Category') }}</h4><br>
             @foreach ($categories as $category)   
-            <span><button type="button" class="btn m-btn m-btn--gradient-from-danger m-btn--gradient-to-warning category-tag"><a href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
+            <span><button type="button" class="btn m-btn m-btn--gradient-from-primary m-btn--gradient-to-info category-tag "><a class="colorwhite" href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
             @endforeach
             <br><br>
 
-            <h4 class="m--font-warning">{{ __('trans.Suggestions') }}</h4><br>
+            <h4 class="colorh">{{ __('trans.Suggestions') }}</h4><br>
             @foreach ($suggest as $key => $suggest)   
             @if ($key > 0 && $key < 6)
             <div class="row">
@@ -189,7 +189,7 @@
                     </a>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                    <h6 class="m--font-brand"><a href="{{ asset('manga') }}/{{ $suggest->slug }}">{{ $suggest->name }}</a></h6>
+                    <h6><a  class="m--font-info" href="{{ asset('manga') }}/{{ $suggest->slug }}">{{ $suggest->name }}</a></h6>
                     <p>{{ $suggest->created_at->diffForHumans() }}</p>
                     <i class="fa fa-eye"></i> {{ $suggest->view }} &nbsp <i class="fa fa-comment"></i>&nbsp {{ $manga->count_comment }}
                 </div>
