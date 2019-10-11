@@ -7,7 +7,7 @@
                 <div class="m-stack__item m-brand m-stack__item--left">
                     <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="#" class="m-brand__logo-wrapper">
+                            <a href="/" class="m-brand__logo-wrapper">
                                 <img alt=""
                                      src="{{ asset(config('assets.path_bower') . '/demo10/assets/demo/demo10/media/img/logo/logo_mini.png') }}"
                                      class="m-brand__logo-desktop"/>
@@ -17,10 +17,6 @@
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
-                            <!-- begin::Quick Actions-->
-                            <a href="/" class="btn btn-link m-btn m-btn--icon m-btn--pill m-link">
-                                <h6>@lang('frontend.home')</h6>
-                            </a>
                             <!-- begin::Responsive Header Menu Toggler-->
                             <a id="m_aside_header_menu_mobile_toggle" href="javascript:;"
                                class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
@@ -46,7 +42,7 @@
                                     m-dropdown-toggle="click" id="m_quicksearch"
                                     m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
                                     <a href="#" class="m-nav__link m-dropdown__toggle">
-                                        <span class="m-nav__link-icon"><i class="flaticon-search-1"></i></span>
+                                        <span class="m-nav__link-icon"><i class="flaticon-search-1 color-black"></i></span>
                                     </a>
                                     <div class="m-dropdown__wrapper">
                                         <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
@@ -119,6 +115,7 @@
                                     <a href="#" class="m-nav__link m-dropdown__toggle">
                                         <h6 class="m-topbar__userpic">
                                             {{ __('trans.Category') }}
+                                            <i class="fa fa-caret-down"></i>
                                         </h6>
                                     </a>
                                     <div class="m-dropdown__wrapper">

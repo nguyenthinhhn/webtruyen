@@ -38,3 +38,7 @@ button[data-notify="dismiss"], button[data-dismiss="alert"] {
 .mg2 {
     margin: 2px;
 }
+
+.color-black {
+    color: black;
+}
