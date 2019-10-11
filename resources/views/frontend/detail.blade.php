@@ -140,7 +140,7 @@
                                         <textarea class="form-control m-input" name="content" id="exampleTextarea" rows="2"></textarea>
                                     </p>
                                     <input type="hidden" name="manga_id" value="{{ $manga->id }}">
-                                    <button type="submit" class="btn btn-primary">{{ __('trans.Save') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('trans.Send') }}</button>
                                 </form>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
 
             <h4 class="m--font-warning">{{ __('trans.Category') }}</h4><br>
             @foreach ($categories as $category)   
-            <span><button type="button" class="btn m-btn m-btn--gradient-from-danger m-btn--gradient-to-warning"><a href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
+            <span><button type="button" class="btn m-btn m-btn--gradient-from-danger m-btn--gradient-to-warning category-tag"><a href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
             @endforeach
             <br><br>
 
