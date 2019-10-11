@@ -108,4 +108,5 @@ return [
     'Full name' => 'Full name',
     'New password' => 'New password',
     'Confirm password' => 'Confirm password',
+    'Send' => 'Send',
 ];
