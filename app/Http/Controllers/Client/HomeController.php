@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Manga;
+use App\Models\Comment;
 use App\Repositories\MangaRepository;
 use Illuminate\Http\Request;
 use Auth;
@@ -21,8 +22,8 @@ class HomeController extends Controller
     {
         $manganew = $this->mangaRepository->getLimit();
         $top5view = $this->mangaRepository->getTopView(config('assets.top5'));
-
-        return view('frontend.home', compact('manganew', 'top5view'));
+        $comments = Comment::where('type', 1)->orderBy('created_at', 'desc')->take(5)->get();
+        return view('frontend.home', compact('manganew', 'top5view','comments'));
     }
 
     public function getCategory($cate)
@@ -39,12 +40,14 @@ class HomeController extends Controller
         $top5view = $this->mangaRepository->getTopView(config('assets.top5'));
         $suggest = $this->mangaRepository->getCategory($manga->categories[0]->slug);
         $view = $this->mangaRepository->countView($manga);
+        $comments = Comment::where('type', 1)->orderBy('created_at', 'desc')->take(5)->get();
+
         $status = 0;
         if (!empty(Auth::user())) {
             $status = $this->mangaRepository->checkFollow($manga->id);
         }
 
-        return view('frontend.detail', compact('manga', 'top5view', 'suggest', 'status'));
+        return view('frontend.detail', compact('manga', 'top5view', 'suggest', 'status','comments'));
     }
 
     public function getChapter($slug_manga, $slug_chapter)
