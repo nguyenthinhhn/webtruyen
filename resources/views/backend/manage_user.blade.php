@@ -39,7 +39,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <img class="width150" id="avatar_show_add" src="{{ asset(config('assets.avatar_default')) }}">
+                                            <img class="width150 crusor" id="avatar_show_add" src="{{ asset(config('assets.avatar_default')) }}">
                                             <label for="avatar">{{ __('trans.Select image') }}</label>
                                             <div style="display: none">
                                                 <input type="file" id="avatar" name="avatar"/>

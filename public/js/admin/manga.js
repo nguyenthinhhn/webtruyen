@@ -82,7 +82,6 @@ $(function() {
             data: 'status',
             name: 'status',
             render: function (data, type, row) {
-                console.log(row);
                 $checked = '';
                 if (data == 1) {
                     $checked = 'checked';
