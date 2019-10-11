@@ -14,11 +14,11 @@
                 <a href="{{ asset('manga') }}/{{ $manga->slug }}">
                     <img class="image" src="{{ asset('storage') }}{{ $manga->image }}">
                 </a>
-                <div class="bge7e7ff">
+                <div class="bge7e7ff align-center">
                     <i class="fa fa-eye"></i> {{ $manga->view }} &nbsp<i class="fa fa-comment"></i>&nbsp {{ $manga->count_comment }}
                 </div><br>
-                <h6 class="m--font-brand"><a href="{{ asset('manga/') }}/{{ $manga->slug }}">{{ $manga->name }}</a></h6>
-                <p>{{ $manga->created_at->diffForHumans() }}</p>
+                <h6 class="m--font-brand align-center"><a href="{{ asset('manga/') }}/{{ $manga->slug }}">{{ $manga->name }}</a></h6>
+                <p class="align-center">{{ $manga->created_at->diffForHumans() }}</p>
             </div>
             @endforeach
         </div>
@@ -48,7 +48,7 @@
 
             <h4 class="m--font-warning">{{ __('trans.Category') }}</h4><br>
             @foreach ($categories as $category)   
-            <span><button type="button" class="btn m-btn m-btn--gradient-from-danger m-btn--gradient-to-warning"><a href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
+            <span><button type="button" class="btn m-btn m-btn--gradient-from-danger m-btn--gradient-to-warning category-tag"><a href="{{ asset('category') }}/{{ $category->slug }}">{{ $category->name }}</a></button></span>
             @endforeach
             <br>
         </div>

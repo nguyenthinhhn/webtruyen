@@ -28,3 +28,11 @@
 .width100 {
     width: 100%;
 }
+
+.category-tag {
+    margin-top: 3px;
+}
+
+.align-center {
+    text-align: center;
+}
