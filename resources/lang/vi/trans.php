@@ -136,6 +136,6 @@ return [
     'name manga is unique' => 'Tên truyện phải là duy nhất',
     'name chapter is unique' => 'Tên chương truyện phải là duy nhất',
     'Send' => 'Gửi',
-    'Comment' => 'Bình luận mới',
+    'New comment' => 'Bình luận mới',
     'Manga category' => 'Truyện theo thể loại'
 ];
