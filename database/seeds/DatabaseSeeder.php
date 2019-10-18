@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AuthorsTableSeeder::class,
             CategoriesTableSeeder::class,
-            ChapterDetailsTableSeeder::class,
             ChaptersTableSeeder::class,
             CommentsTableSeeder::class,
             DevicesTableSeeder::class,
