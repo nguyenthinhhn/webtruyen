@@ -15,7 +15,6 @@
                 <tr>
                     <th class="stl-column color-column">{{ __('trans.Acction') }}</th> 
                     <th class="stl-column color-column">{{ __('trans.Name chapter') }}</th> 
-                    <th class="stl-column color-column">{{ __('trans.Content') }}</th>
                     <th class="stl-column color-column">{{ __('trans.Description') }}</th> 
                     <th class="stl-column color-column">{{ __('trans.Slug') }}</th> 
                     <th class="stl-column color-column">{{ __('trans.View') }}</th>

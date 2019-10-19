@@ -236,3 +236,28 @@ function edit_slug() {
     //In slug ra textbox có id “slug”
     code.value = slug;
 }
+
+$('#manga_crawler').on('submit',function(e){
+    e.preventDefault();
+    var formData = new FormData($(this)[0]);
+    console.log(formData)
+    $.ajax({
+        url: "/admin/manga/crawler", 
+        data: formData,
+        type: 'post',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            $('#modal-crawler').modal('hide');
+            $('#mangas-table').DataTable().ajax.reload();
+            swal( data.message , {
+                icon: "success",
+            });                  
+        },
+        error: function (data) {
+            swal( data.message , {
+                icon: "warning",
+            });  
+        }
+    })
+});

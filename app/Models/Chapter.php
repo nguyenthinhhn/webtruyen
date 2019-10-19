@@ -16,11 +16,8 @@ class Chapter extends Model
         'content',
     ];
 
-    public function chapterDetail(){
-        return $this->hasOne('App\Models\ChapterDetail');
-    }
-
     public function comments(){
         return $this->hasMany('App\Models\Comment');
     }
+
 }

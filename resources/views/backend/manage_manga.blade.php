@@ -7,7 +7,7 @@
 @section('content')
 <div class="m-portlet">
     <div class="m-portlet__body">
-        <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>{{ __('trans.Add manga') }}</a><br><br>
+        <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>{{ __('trans.Add manga') }}</a> &nbsp<a class="btn btn-info" data-toggle="modal" href='#modal-crawler'>{{ __('trans.Add manga crawler') }}</a><br><br>
         <table class="table table-striped table-bordered table-hover table-checkable order-column" id="mangas-table">
             <thead>
                 <tr>
@@ -154,6 +154,25 @@
                             <button type="submit" class="btn btn-primary">{{ __('trans.Save') }}</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('trans.Close') }}</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-crawler">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form method="POST" action="" id="manga_crawler" role="form">
+                        @csrf
+                        <h2 class="text-center">{{ __('trans.Add manga crawler') }}</h2>
+                        <div class="form-group">
+                            <label for="">{{ __('trans.Input url') }}</label>
+                            <input type="text" class="form-control" id="url" name="url" placeholder="Nhập url">
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">{{ __('trans.Crawler') }}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('trans.Close') }}</button>
                     </form>
                 </div>
             </div>

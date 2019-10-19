@@ -137,5 +137,9 @@ return [
     'name chapter is unique' => 'Tên chương truyện phải là duy nhất',
     'Send' => 'Gửi',
     'New comment' => 'Bình luận mới',
-    'Manga category' => 'Truyện theo thể loại'
+    'Manga category' => 'Truyện theo thể loại',
+    'Add manga crawler' => 'Crawler truyện',
+    'Crawler' => 'Crawler',
+    'Input url' => 'Nhập đường dẫn',
+    'already exist' => "Truyện đã tồn tại"
 ];

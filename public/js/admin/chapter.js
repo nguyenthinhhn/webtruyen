@@ -82,13 +82,6 @@ $(function() {
             }
         },
         {
-            data: 'content',
-            name: 'content',
-            render: function (data, type, row) {
-                return data.substr(0, 150) + "...";
-            }
-        },
-        {
             data: 'description',
             name: 'description',
             render: function (data, type, row) {

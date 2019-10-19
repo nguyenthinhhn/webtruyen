@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/manga', 'MangaController@index')->name('manga.index');
         Route::get('/manga/getlist', 'MangaController@getlist')->name('manga.getlist');
         Route::post('/manga/store', 'MangaController@store')->name('manga.store');
+        Route::post('/manga/crawler', 'MangaController@crawler')->name('manga.crawler');
         Route::get('/manga/delete/{id}', 'MangaController@delete')->name('manga.delete');
         Route::get('/manga/status/{id}', 'MangaController@updateStatus')->name('manga.status');
         Route::get('/manga/{id}/edit', 'MangaController@edit')->name('manga.edit');
