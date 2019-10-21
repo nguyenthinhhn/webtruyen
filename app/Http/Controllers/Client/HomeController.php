@@ -26,6 +26,10 @@ class HomeController extends Controller
         return view('frontend.home', compact('manganew', 'top5view','comments'));
     }
 
+    public function about()
+    {
+        return view('frontend.about');
+    }
     public function getCategory($cate)
     {
         $manganew = $this->mangaRepository->getCategory($cate);
