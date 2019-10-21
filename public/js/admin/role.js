@@ -38,7 +38,6 @@ $(function() {
             render: function (data, type, row) {
 
                 return '<a href="#" class="btn btn-xs btn-primary" data-toggle="tooltip"  onclick="addPermission(' + data + ');"><i class="fas fa-plus"></i></a>' +
-                '<a href="#" class="btn btn-xs btn-warning" data-toggle="tooltip"  onclick="edit(' + data + ');"><i class="fas fa-pencil-alt"></i></a>' +
                 '<a href="#" class="btn btn-xs btn-danger" data-toggle="tooltip" onclick="deleteRole(' + data + ');"><i class="fas fa-trash"></i></a>';
             }
         },

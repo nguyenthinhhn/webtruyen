@@ -141,5 +141,6 @@ return [
     'Add manga crawler' => 'Crawler truyện',
     'Crawler' => 'Crawler',
     'Input url' => 'Nhập đường dẫn',
-    'already exist' => "Truyện đã tồn tại"
+    'already exist' => "Truyện đã tồn tại",
+    'Avatar is image' => 'Avatar phải là ảnh',
 ];

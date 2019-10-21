@@ -12,16 +12,24 @@
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <a href="{{ asset('manga') }}/{{ $manga->slug }}">
-                    <img class="width200" src="{{ asset('storage') }}{{ $manga->image }}">
+                    @if($manga->cover == 1)
+                        <img class="width200" src="{{ $manga->image }}">
+                    @else
+                        <img class="width200" src="{{ asset('storage') }}{{ $manga->image }}">
+                    @endif
                 </a>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <ul class="list-info">
                     <li class="author row">
                         <p class="name col-xs-4 "><i class="fa fa-user"></i> {{ __('trans.Author') }} :</p> &nbsp
-                        @foreach ($manga->authors as $author)
-                        <a href="" class="col-xs-8">{{ $author->name }} &nbsp</a>
-                        @endforeach
+                        @if(count($manga->authors) != 0) 
+                            @foreach ($manga->authors as $author)
+                            <a href="" class="col-xs-8">{{ $author->name }} &nbsp</a>
+                            @endforeach
+                        @else
+                            <a href="" class="col-xs-8">Đang cập nhật</a>
+                        @endif
                     </li>
                     <li class="status row">
                         <p class="name col-xs-4"><i class="fa fa-rss"></i> {{ __('trans.Status') }} : </p>&nbsp
@@ -161,7 +169,11 @@
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <a href="{{ asset('manga') }}/{{ $manga->slug }}">
-                        <img class="width70" src="{{ asset('storage') }}{{ $manga->image }}">
+                        @if($manga->cover == 1)
+                            <img class="width70" src="{{ $manga->image }}">
+                        @else
+                            <img class="width70" src="{{ asset('storage') }}{{ $manga->image }}">
+                        @endif
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -185,7 +197,11 @@
             <div class="row">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                     <a href="{{ asset('manga') }}/{{ $suggest->slug }}">
-                        <img class="width70" src="{{ asset('storage') }}{{ $suggest->image }}">
+                        @if($manga->cover == 1)
+                            <img class="width70" src="{{ $suggest->image }}">
+                        @else
+                            <img class="width70" src="{{ asset('storage') }}{{ $suggest->image }}">
+                        @endif
                     </a>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">

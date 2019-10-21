@@ -57,7 +57,12 @@ $(function() {
             name: 'image',
             render: function (data, type, row) {
                 if (data != null) {
-                    return '<div class="imgList"><img width= "60px;" src="' + '/storage' + data + '" alt=""></div>';  
+                    if (row.cover == 1) {
+                        var img = data
+                    } else {
+                        var img = "/storage" + data
+                    }
+                    return '<div class="imgList"><img width= "60px;" src="' + img + '" alt=""></div>';  
                 } else {
                     return '<div class="imgList"><img width= "60px;" src="' + '/images/avatar_default.png' + '" alt=""></div>';
                 }
@@ -126,7 +131,7 @@ function deleteManga($id){
                 type: 'get',
                 url: '/admin/manga/delete/' + $id,
                 success: function(res) {
-                    swal("Delete success", {
+                    swal( res.message, {
                         icon: "success",
                     });
                     $('#mangas-table').DataTable().ajax.reload();
@@ -174,7 +179,12 @@ function edit($id){
             $('#description').val(response.description);
             $('#total_rate').val(response.total_rate);             
             $('#slug').val(response.slug);
-            $('#avatar_show_edit').attr('src', '/storage' + response.image);             
+            if (response.cover == 1) {
+                var img = response.image
+            } else {
+                var img = "/storage" +response.image
+            }
+            $('#avatar_show_edit').attr('src', img);             
         }       
     });         
 }
@@ -250,14 +260,22 @@ $('#manga_crawler').on('submit',function(e){
         success: function (data) {
             $('#modal-crawler').modal('hide');
             $('#mangas-table').DataTable().ajax.reload();
-            swal( data.message , {
-                icon: "success",
-            });                  
+            if (! data.bug)
+            {
+                swal( data.message , {
+                    icon: "success",
+                });   
+            } else {
+                swal(data.message, {
+                    icon: "success",
+                });
+            }              
         },
         error: function (data) {
-            swal( data.message , {
-                icon: "warning",
-            });  
+            swal( "Thêm truyện thành công" , {
+                icon: "success",
+            });
+            $('#mangas-table').DataTable().ajax.reload();
         }
     })
 });

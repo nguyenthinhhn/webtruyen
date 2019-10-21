@@ -12,7 +12,6 @@ $(function() {
         { data: 'slug', name: 'slug' },
         { data: 'meta_title', name: 'meta_title' },
         { data: 'meta_description', name: 'meta_description' },
-        { data: 'meta_keywords', name: 'meta_keywords' },
         { data: 'created_at', name: 'created_at' },
         ]
     });

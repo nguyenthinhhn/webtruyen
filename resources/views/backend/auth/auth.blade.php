@@ -47,7 +47,7 @@
                 </div>
                 <div class="m-login__signin">
                     <div class="m-login__head">
-                        <h3 class="m-login__title">@lang('auth.title')</h3>
+                        <h3 class="m-login__title">Đăng nhập</h3>
                     </div>
                     <form class="m-login__form m-form" action="{{ route('login') }}" method="post">
                         <div class="form-group m-form__group">

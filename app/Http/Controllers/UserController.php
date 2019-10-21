@@ -7,6 +7,7 @@ use App\Repositories\UserRepository;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use Auth;
 use Hash;
@@ -161,7 +162,7 @@ class UserController extends Controller
             'message' => __('trans.Edit error password'),
         ]);
     }
-    public function avatar(Request $request){
+    public function avatar(ProfileRequest $request){
         $result = User::find(Auth::user()->id);
         if ($request->hasFile('avatar')) {     
             $path = $request->file('avatar')->store('public/images');

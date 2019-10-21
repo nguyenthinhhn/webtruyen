@@ -12,7 +12,11 @@
             @foreach ($manganew as $manga)                                           
             <div class=" col-lg-3 col-md-4 col-sm-4 col-xs-6 col-6">
                 <a href="{{ asset('manga') }}/{{ $manga->slug }}">
-                    <img class="image" src="{{ asset('storage') }}{{ $manga->image }}">
+                    @if($manga->cover == 1)
+                        <img class="image" src="{{ $manga->image }}">
+                    @else
+                        <img class="image" src="{{ asset('storage') }}{{ $manga->image }}">
+                    @endif
                 </a>
                 <div class="bge7e7ff align-center">
                     <i class="fa fa-eye"></i> {{ $manga->view }} &nbsp<i class="fa fa-comment"></i>&nbsp {{ $manga->count_comment }}
@@ -34,7 +38,11 @@
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <a href="{{ asset('manga') }}/{{ $manga->slug }}">
-                        <img class="width70" src="{{ asset('storage') }}{{ $manga->image }}">
+                        @if($manga->cover == 1)
+                            <img class="width70" src="{{ $manga->image }}">
+                        @else
+                            <img class="width70" src="{{ asset('storage') }}{{ $manga->image }}">
+                        @endif
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

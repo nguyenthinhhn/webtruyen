@@ -47,7 +47,9 @@ class MangaController extends Controller
     public function delete($id) {
         $result = $this->mangaRepository->delete($id);
 
-        return response()->json();
+        return response()->json([
+            'message' => __('trans.Delete success'),
+        ]);
     }
     public function updateStatus($id) {
         $result = $this->mangaRepository->updateStatus($id);
@@ -125,7 +127,7 @@ class MangaController extends Controller
             }
             $linkchapter = array_slice(array_reverse($all_links), count($all_links) - 10);
 
-            for($i = 0; $i < 5; $i++) {
+            for($i = 0; $i < 6; $i++) {
                 $clientc = new Client();
                 $crawlerc = $clientc->request('GET', $all_links[$i]);
                 $name_chapter = $crawlerc->filter('.active > span')->text();
@@ -134,30 +136,33 @@ class MangaController extends Controller
                 });
 
                 $cont = "";
+                $kt = 0;
                 for ($j = 0; $j < 5; $j++){
                     if($image[$j][0] == "h") {
                         $cont .= "<p><img alt='' src='{$image[$j]}' /></p>";
+                        $kt++;
                     }
                 }
-                $ctg["name"] = $name_chapter;
-                $ctg["view"] = 0;
-                $ctg["status"] = 1;
-                $ctg["slug"] = str_slug($name_chapter). time();
-                $ctg["content"] = $cont;
-                $ctg["description"] = "Đang cập nhật";
-                $ctg["manga_id"] = $manga->id;
-                $chap = Chapter::create($ctg);
-
+                if($kt != 0) {
+                    $ctg["name"] = $name_chapter;
+                    $ctg["view"] = 0;
+                    $ctg["status"] = 1;
+                    $ctg["slug"] = str_slug($name_chapter). time();
+                    $ctg["content"] = $cont;
+                    $ctg["description"] = "Đang cập nhật";
+                    $ctg["manga_id"] = $manga->id;
+                    $chap = Chapter::create($ctg);
+                }
             }
 
             return response()->json([
-                'error' => false,
+                'bug' => false,
                 'message' => __('trans.Add success'),
             ]);
         }
 
         return response()->json([
-            'error' => true,
+            'bug' => true,
             'message' => __('trans.already exist'),
         ]);
     }
