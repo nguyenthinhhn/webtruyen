@@ -24,7 +24,7 @@ return [
     'manga_name' => 'Tên truyện',
     'recent' => 'Xem gần nhất',
     'last_chapter' => 'Chap mới nhất',
-    'search' => 'Tìm kiếm',
+    'search' => 'Nhập từ cần tìm kiếm ...',
     'rated' => 'Bạn đã đánh giá rồi',
     'About' => 'Liên hệ',
     'Support' => 'Hỗ trợ',

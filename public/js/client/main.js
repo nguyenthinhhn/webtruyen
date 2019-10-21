@@ -127,7 +127,12 @@ $('#header-search').on('keyup', function () {
             .done(function (res) {
                 $('#search-suggest').html('');
                 res.forEach(function (data) {
-                    $('#search-suggest').append("<div class='row'><span><a href='/manga/" + data.slug + "'>&nbsp&nbsp<img class='width70' src='/storage" + data.image + "'></a> &nbsp&nbsp</span><span><h6 class='m--font-brand'><a href='/manga/" + data.slug + "''>" + data.name + "</a></h6></span></div><br>")
+                    if (data.cover == 1) {
+                        var img = data.image
+                    } else {
+                        var img = "/storage" + data.image
+                    }
+                    $('#search-suggest').append("<div class='row'><span><a href='/manga/" + data.slug + "'>&nbsp&nbsp<img class='width70' src='"+ img +"'></a> &nbsp&nbsp</span><span><h6 class='m--font-brand'><a href='/manga/" + data.slug + "''>" + data.name + "</a></h6></span></div><br>")
                 });
             })
     }

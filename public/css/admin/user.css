@@ -68,3 +68,8 @@ input:checked + .slider:before {
 .crusor:hover {
     cursor: pointer;
 }
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    margin: 2px;
+}

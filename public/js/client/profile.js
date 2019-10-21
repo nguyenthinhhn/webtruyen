@@ -81,7 +81,9 @@ $('body').on('submit','#update_avatar_profile', function(e){
             toastr.success(data.message);
         },
         error: function (data) {
-            toastr.error(data);
+            jQuery.each(data.responseJSON.errors, function(key, value){
+                toastr.error(value) 
+            })
         }
     })
 });

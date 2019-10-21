@@ -16,7 +16,6 @@
                     <th class="stl-column color-column">{{ __('trans.Slug') }}</th>              
                     <th class="stl-column color-column">{{ __('trans.Title') }}</th> 
                     <th class="stl-column color-column">{{ __('trans.Description') }}</th>
-                    <th class="stl-column color-column">{{ __('trans.Keywords') }}</th>
                     <th class="stl-column color-column">{{ __('trans.Date create') }}</th>
                 </tr>
             </thead>

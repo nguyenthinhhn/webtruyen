@@ -69,7 +69,7 @@ class CategoryController extends Controller
         return $result;
     }
 
-    public function update(CategoryRequest $request) {
+    public function update(Request $request) {
         $result = $this->categoryRepository->update($request->id, $request->all());
     
         return response()->json([
