@@ -143,4 +143,5 @@ return [
     'Input url' => 'Nhập đường dẫn',
     'already exist' => "Truyện đã tồn tại",
     'Avatar is image' => 'Avatar phải là ảnh',
+    'About' => 'Thông tin',
 ];

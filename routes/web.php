@@ -21,6 +21,7 @@ Route::get('/js/lang.js', [HomeController::class, 'exportJs'])->name('admin.lang
 Auth::routes();
 Route::get('/user/login', [RegisterController::class, 'index'])->name('admin.login');
 Route::get('/', 'Client\HomeController@index')->name('client.home');
+Route::get('/aboutme', 'Client\HomeController@about')->name('client.home');
 Route::get('/category/{cate}', 'Client\HomeController@getCategory')->name('client.getcategory');
 Route::get('/manga/{slug}', 'Client\HomeController@getManga')->name('client.getmanga');
 Route::get('/manga/{manga}/{chapter}', 'Client\HomeController@getChapter')->name('client.getChapter');

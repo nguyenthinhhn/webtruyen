@@ -73,7 +73,7 @@ m-minimize-offset="10" m-minimize-mobile-offset="10">
                 </li>
                 <li class="m-nav__item m-dropdown m-dropdown--small m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
                 m-dropdown-toggle="click">
-                <a href="#" class="m-nav__link">
+                <a href="{{ asset('/aboutme') }}" class="m-nav__link">
                     <h5 class="m-topbar__userpic">
                         {{ __('trans.About') }}
                     </h5>
@@ -106,9 +106,9 @@ m-minimize-offset="10" m-minimize-mobile-offset="10">
             <li class="m-nav__item m-dropdown m-dropdown--small m-dropdown--arrow m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
             m-dropdown-toggle="click">
             <a href="{{ asset('/user/login') }}" class="m-nav__link">
-                <h6 class="m-topbar__userpic">
+                <h5 class="m-topbar__userpic">
                     {{ __('trans.Login') }}
-                </h6>
+                </h5>
             </a>
         </li>
         @else
