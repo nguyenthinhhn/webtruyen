@@ -14,7 +14,7 @@
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/user" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-network"></i>
-                    <span class="m-menu__link-text">{{ __('trans.Manage user') }}</span>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage user') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
@@ -23,7 +23,7 @@
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/category" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-interface-9"></i>
-                    <span class="m-menu__link-text">{{ __('trans.Manage category') }}</span>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage category') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
@@ -32,7 +32,7 @@
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/role" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-suitcase"></i>
-                    <span class="m-menu__link-text">{{ __('trans.Manage role') }}</span>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage role') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
@@ -41,7 +41,7 @@
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/manga" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-layers"></i>
-                    <span class="m-menu__link-text">{{ __('trans.Manage manga') }}</span>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage manga') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
@@ -50,7 +50,7 @@
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/database" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-line-graph"></i>
-                    <span class="m-menu__link-text">{{ __('trans.Manage database') }}</span>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage database') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
@@ -59,7 +59,7 @@
             <li class="m-menu__item m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-layers"></i>
-                    <span class="m-menu__link-text">@lang('backend.report')</span>
+                    <span class="m-menu__link-text" style="color: white">@lang('backend.report')</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
                 <div class="m-menu__submenu ">

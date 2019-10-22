@@ -8,7 +8,7 @@
     <div class="cont col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <br>
         <div class="alert alert-info" role="alert">
-            <h2><strong>{{ $manga->name}} - </strong> {{ $chapter->name }}</h2>
+            <h2><strong><a style="color: white" href="{{ asset('manga') }}/{{ $manga->slug }}">{{ $manga->name}}</a> - </strong> {{ $chapter->name }}</h2>
         </div>
         <div class="thumbnail">
             {!! $chapter->content !!}

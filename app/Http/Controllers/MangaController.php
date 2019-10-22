@@ -81,14 +81,14 @@ class MangaController extends Controller
     }
 
     public function crawler(Request $request) {
-        // đọc dữ liệu từ url
+        // đọc dữ liệu từ url https://truyenqq.com
         $client = new Client();
         $crawler = $client->request('GET', $request->url);
-        $name_manga = $crawler->filter('.title-detail')->text();
-        $img = $crawler->filter('.col-image > img')->each(function ($node) {
+        $name_manga = $crawler->filter('.center > h1')->text();
+        $img = $crawler->filter('.left > img')->each(function ($node) {
             return $node->attr('src');
         })[0];
-        $description = $crawler->filter('.detail-content > p')->text();
+        $description = $crawler->filter('.story-detail-info > p')->text();
 
         //check xem truyện đã tồn tại chưa
         $mg = Manga::where('name', $name_manga)->first();
@@ -103,56 +103,59 @@ class MangaController extends Controller
             $data['cover'] = 1;
             $manga = Manga::create($data);
 
-            $cate = $crawler->filter('.kind > p > a')->text();
-            $category = Category::where('name', $cate)->first();
-            if(!isset($category)) {
-                $categ['name'] = $cate;
-                $categ['slug'] = str_slug($cate);
-                $categ['meta_description'] = $cate;
-                $ct = Category::create($categ);
+            $catego = $crawler->filter('.list01 > .li03')->each(function ($node) {
+                return $node->text();
+            });
+            foreach ($catego as $cate) {
+                $category = Category::where('name', $cate)->first();
+                if(!isset($category)) {
+                    $categ['name'] = $cate;
+                    $categ['slug'] = str_slug($cate);
+                    $categ['meta_description'] = $cate;
+                    $ct = Category::create($categ);
 
-                $catemanga['category_id'] = $ct->id;
-                $catemanga['manga_id'] = $manga->id;
-                CategoryManga::create($catemanga);
-            } else {
-                $catemanga['category_id'] = $category->id;
-                $catemanga['manga_id'] = $manga->id;
-                CategoryManga::create($catemanga);
+                    $catemanga['category_id'] = $ct->id;
+                    $catemanga['manga_id'] = $manga->id;
+                    CategoryManga::create($catemanga);
+                } else {
+                    $catemanga['category_id'] = $category->id;
+                    $catemanga['manga_id'] = $manga->id;
+                    CategoryManga::create($catemanga);
+                }
             }
-
             $all_links = [];
-            $links = $crawler->filter('.row > .chapter > a')->links();
+            $links = $crawler->filter('.row > div > a')->links();
             foreach ($links as $link) {
                 $all_links[] = $link->getURI();
             }
-            $linkchapter = array_slice(array_reverse($all_links), count($all_links) - 10);
+            $max = 0;
+            if (count($all_links) < 7){
+                $max = count($all_links);
+            } else {
+                $max = 5;
+            }
 
-            for($i = 0; $i < 6; $i++) {
+            for($i = 0; $i < $max; $i++) {
                 $clientc = new Client();
                 $crawlerc = $clientc->request('GET', $all_links[$i]);
-                $name_chapter = $crawlerc->filter('.active > span')->text();
-                $image = $crawlerc->filter('.page-chapter > img')->each(function ($node) {
+                $name_chapter = $crawlerc->filter('.detail-title')->text();
+                $image = $crawlerc->filter('.story-see-content > img')->each(function ($node) {
                     return $node->attr('data-original');
                 });
-
                 $cont = "";
-                $kt = 0;
                 for ($j = 0; $j < 5; $j++){
                     if($image[$j][0] == "h") {
                         $cont .= "<p><img alt='' src='{$image[$j]}' /></p>";
-                        $kt++;
                     }
                 }
-                if($kt != 0) {
-                    $ctg["name"] = $name_chapter;
-                    $ctg["view"] = 0;
-                    $ctg["status"] = 1;
-                    $ctg["slug"] = str_slug($name_chapter). time();
-                    $ctg["content"] = $cont;
-                    $ctg["description"] = "Đang cập nhật";
-                    $ctg["manga_id"] = $manga->id;
-                    $chap = Chapter::create($ctg);
-                }
+                $ctg["name"] = $name_chapter;
+                $ctg["view"] = 0;
+                $ctg["status"] = 1;
+                $ctg["slug"] = str_slug($name_chapter). time();
+                $ctg["content"] = $cont;
+                $ctg["description"] = "Đang cập nhật";
+                $ctg["manga_id"] = $manga->id;
+                $chap = Chapter::create($ctg);
             }
 
             return response()->json([
