@@ -79,11 +79,18 @@ $('body').on('submit','#update_avatar_profile', function(e){
         processData: false,
         success: function (data) {
             toastr.success(data.message);
+            setTimeout(function(){
+                location.reload();
+            }, 2000);
         },
         error: function (data) {
             jQuery.each(data.responseJSON.errors, function(key, value){
                 toastr.error(value) 
             })
+            setTimeout(function(){
+                location.reload();
+            }, 2000);
+           
         }
     })
 });

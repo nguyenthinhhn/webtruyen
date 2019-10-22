@@ -42,3 +42,6 @@ button[data-notify="dismiss"], button[data-dismiss="alert"] {
 .color-black {
     color: black;
 }
+.color-white {
+    color: white;
+}
