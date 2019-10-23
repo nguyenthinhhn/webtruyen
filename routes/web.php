@@ -38,3 +38,6 @@ Route::get('/language/{lang}', 'Client\HomeController@switchLanguage')->name('cl
 Route::get('/profile', 'Client\ProfileController@profile')->name('client.profile');
 Route::get('/manga_follow', 'Client\ProfileController@profile')->name('client.profile.follow');
 Route::post('/profile', 'Client\ProfileController@saveProfile')->name('client.profile.save');
+
+Route::post('/calender/import', 'CalenderController@import');
+Route::get('/calender', 'CalenderController@calender');
