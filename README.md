@@ -13,3 +13,4 @@ cài đặt project<br>
 11 - Chạy php artisan server                                    // để run host <br>
 12 - Chạy php artisan ckfinder:download                         // để dowload ckfinder
 13 - Chạy php artisan vendor:publish --tag=ckfinder             // để xuất file css, js và file config c
+14 - php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" 
