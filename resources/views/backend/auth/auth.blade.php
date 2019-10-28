@@ -93,7 +93,7 @@
                                    autocomplete="off">
                         </div>
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="password" placeholder="@lang('auth.password_plh')" name="password">
+                            <input class="form-control m-input" type="password" placeholder="@lang('auth.password_plh')" id="pw" name="password">
                         </div>
                         <div class="form-group m-form__group">
                             <input class="form-control m-input m-login__form-input--last" type="password"

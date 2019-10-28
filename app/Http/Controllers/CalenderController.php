@@ -25,18 +25,36 @@ class CalenderController extends Controller
         $data = Schedule::all();
         if($data->count()) {
             foreach ($data as $key => $value) {
-            	$startdate = Carbon::create($value->date);
-            	$startdate->addHours(10);
+                $startdate = Carbon::create($value->date);
+                $thoigian = explode(",", trim($value->lesson));
+
+                if($thoigian[0] == 1) {
+                    $startdate->addHours(7);
+                } else if ($thoigian[0] == 4) {
+                    $startdate->addHours(9);
+                    $startdate->addMinute(30);
+                } else if ($thoigian[0] == 7) {
+                    $startdate->addHours(12);
+                    $startdate->addMinute(30);
+                } else if ($thoigian[0] == 10) {
+                    $startdate->addHours(15);
+                    $startdate->addMinute(30);
+                } else if ($thoigian[0] == 13) {
+                    $startdate->addHours(18);
+                } else {
+                    $startdate->addHours(18);
+                }
+                $title = $value->class . " - " . $value->location;
                 $events[] = Calendar::event(
-                    $value->class,
+                    $title,
                     false,
                     new DateTime($startdate),
-                    new DateTime($startdate->addHours(3)),
+                    new DateTime($startdate->addHours(2)),
                     null,
                     // Add color and link on event
-	                [
-	                    'color' => '#ff6100',
-	                ]
+                    [
+                        'color' => '#ff6100',
+                    ]
                 );
             }
         }

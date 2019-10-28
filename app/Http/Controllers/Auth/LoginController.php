@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -55,19 +56,31 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            if (Auth::user()->role_id == 3) {
-                $redirectTo = route('client.home');
-            }else {
-                $redirectTo = route('admin.profile');
+        $user = User::where('email', $request->email)->first();
+        if( isset($user) ){
+            if($user->status == 0) {
+                return response()->json([
+                    'status' => 'block',
+                ]);
             }
-            
-            return response()->json([
-                'status' => 'success',
-                'redirectTo' => $redirectTo,
-            ]);
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                // Authentication passed...
+                if (Auth::user()->role_id == 3) {
+                    $redirectTo = route('client.home');
+                }else {
+                    $redirectTo = route('admin.profile');
+                }
+                
+                return response()->json([
+                    'status' => 'success',
+                    'redirectTo' => $redirectTo,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                ],422);
+            }
         } else {
             return response()->json([
                 'status' => 'error',

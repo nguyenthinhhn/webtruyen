@@ -40,11 +40,14 @@ var SnippetLogin = function () {
                         success: function (e, t, r, s) {
                             if (e.status === 'success') {
                                 location.href = e.redirectTo;
+                            } else if(e.status === 'block') {
+                                i(l, "danger", "Tài khoản của bạn đã bị khóa.");
+                                a.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1)
                             }
                         },
                         error: function (x, s, e) {
                             if (x.status === 422) {
-                                i(l, "danger", "Thông tin nhập không chính xác.");
+                                i(l, "danger", "Tài khoản hoặc mật khẩu không chính xác.");
                                 a.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1)
                             }
                         }
@@ -58,7 +61,7 @@ var SnippetLogin = function () {
                         username: {required: !0},
                         email: {required: !0, email: !0},
                         password: {required: !0},
-                        password_confirmation: {required: !0, equalTo: '[name="password"]'},
+                        password_confirmation: {required: !0, equalTo: '[id="pw"]'},
                         agree: {required: !0}
                     },
                     messages: {
@@ -82,7 +85,7 @@ var SnippetLogin = function () {
                             },
                             error: function (x, s, e) {
                                 if (x.status === 422) {
-                                    err_signup(l, "danger", "Thông tin nhập không chính xác.");
+                                    err_signup(l, "danger", "Tài khoản đã có người sử dụng");
                                     a.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1)
                                 }
                             }
