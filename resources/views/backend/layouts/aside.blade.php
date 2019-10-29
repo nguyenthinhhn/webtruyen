@@ -49,16 +49,23 @@
             @can('manage-database')
             <li class="m-menu__item" m-menu-submenu-toggle="hover">
                 <a href="/admin/database" class="m-menu__link m-menu__toggle">
-                    <i class="m-menu__link-icon flaticon-line-graph"></i>
+                    <i class="m-menu__link-icon flaticon-tabs"></i>
                     <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage database') }}</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>
             </li>
             @endcan
+            <li class="m-menu__item" m-menu-submenu-toggle="hover">
+                <a href="/calender" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon flaticon-calendar"></i>
+                    <span class="m-menu__link-text" style="color: white">{{ __('trans.Manage calender') }}</span>
+                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                </a>
+            </li>
             @can('manage-report')
             <li class="m-menu__item m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle">
-                    <i class="m-menu__link-icon flaticon-layers"></i>
+                    <i class="m-menu__link-icon flaticon-line-graph"></i>
                     <span class="m-menu__link-text" style="color: white">@lang('backend.report')</span>
                     <i class="m-menu__ver-arrow la la-angle-right"></i>
                 </a>

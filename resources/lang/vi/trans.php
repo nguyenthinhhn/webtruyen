@@ -144,4 +144,6 @@ return [
     'already exist' => "Truyện đã tồn tại",
     'Avatar is image' => 'Avatar phải là ảnh',
     'About' => 'Thông tin',
+    'Manage calender' => 'Quản lý lịch',
+    'Import file' => 'Import file',
 ];
