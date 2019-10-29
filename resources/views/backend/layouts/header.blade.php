@@ -5,7 +5,7 @@
             <div class="m-stack__item m-brand m-brand--skin-dark">
                 <div class="m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                        <h3 style="color: white">Manga</h3>
+                        <a href="/"><h3 style="color: white">Manga</h3></a>
                     </div>
                     <div class="m-stack__item m-stack__item--middle m-brand__tools">
                         <!-- BEGIN: Left Aside Minimize Toggle -->
