@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\HomeController;
 Route::get('/facebook/login', function(){
 	return view('loginface');
 });
+Route::post('/face/login', 'Client\ProfileController@saveuser');
 
 Route::get('/admin/login', [RegisterController::class, 'index'])->name('admin.login');
 Route::get('/home', 'HomeController@index')->name('home');

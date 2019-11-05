@@ -15,9 +15,9 @@
                                 @csrf
                                 <div class="m-card-profile__pic-wrapper">
                                     @if(isset(Auth::user()->avatar))
-                                        <img src="{{ asset('storage') }}{{ $user->avatar }}" id="avatar_profile" alt="" />
+                                        <img src="{{ asset('storage') }}{{ $user->avatar }}" id="avatar_pro" alt="" />
                                     @else
-                                        <img class="m-widget3__img" id="avatar_profile" src="{{ asset('images/avatar_default.png') }}"
+                                        <img class="m-widget3__img" id="avatar_pro" src="{{ asset('images/avatar_default.png') }}"
                                                  alt=""/>
                                     @endif
                                     <div style="display: none">

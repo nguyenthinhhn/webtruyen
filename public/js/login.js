@@ -75,7 +75,7 @@ var SnippetLogin = function () {
                         },
                         agree: {required: i18n.validate.required}
                     }
-                }), r.valid() && (t.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0),
+                }), r.valid() && (
                         r.ajaxSubmit({
                             url: r.attr('action'),
                             success: function (l, s, n, o) {
@@ -86,7 +86,6 @@ var SnippetLogin = function () {
                             error: function (x, s, e) {
                                 if (x.status === 422) {
                                     err_signup(l, "danger", "Tài khoản đã có người sử dụng");
-                                    a.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1)
                                 }
                             }
                         })
