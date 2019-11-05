@@ -44,12 +44,12 @@ class CalenderController extends Controller
                 } else {
                     $startdate->addHours(18);
                 }
-                $title = $value->class . " - " . $value->location;
+                $title = $value->location . " - " . $value->class;
                 $events[] = Calendar::event(
                     $title,
                     false,
                     new DateTime($startdate),
-                    new DateTime($startdate->addHours(2)),
+                    new DateTime($startdate->addHours(2)->addMinute(30)),
                     null,
                     // Add color and link on event
                     [

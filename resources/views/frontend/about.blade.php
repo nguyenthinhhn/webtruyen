@@ -101,11 +101,11 @@
                 <div class="row justify-content-start pb-3">
                     <div class="col-md-12 heading-section">
                         <ul class="about-info mt-4 px-md-0 px-2">
-                            <li class="d-flex"><span>{{ __('frontend.Name') }}:</span> <span>Nguyễn Văn Thịnh</span></li>
-                            <li class="d-flex"><span>{{ __('frontend.Date of birth') }}:</span> <span>01-01-1998</span></li>
-                            <li class="d-flex"><span>{{ __('frontend.Address') }}:</span> <span>Phú Xuyên - Hà Nội</span></li>
-                            <li class="d-flex"><span>{{ __('frontend.Email') }}:</span> <span>nguyenthinhhn98@gmail.com</span></li>
-                            <li class="d-flex"><span>{{ __('frontend.Phone') }}: </span> <span>0342025533</span></li>
+                            <li class="d-flex"><span>{{ __('frontend.Name') }}:</span> <span>Hà Thị Phương Thảo</span></li>
+                            <li class="d-flex"><span>{{ __('frontend.Date of birth') }}:</span> <span>03-02-1998</span></li>
+                            <li class="d-flex"><span>{{ __('frontend.Address') }}:</span> <span>Cẩm Phả - Quảng Ninh</span></li>
+                            <li class="d-flex"><span>{{ __('frontend.Email') }}:</span> <span>hathao.kma.03021998@gmail.com</span></li>
+                            <li class="d-flex"><span>{{ __('frontend.Phone') }}: </span> <span>0868345716</span></li>
                         </ul>
                     </div>
                 </div>
@@ -115,9 +115,8 @@
                         <span class="flaticon-ideas"></span>
                     </div>
                     <div class=" pl-2">
-                       <span class="date">2014-2015 Zent education</span>
-                        <p>A small river named  regelialia.</p>
-                        <p>A small river named  regelialia.</p>
+                       <span class="date">10/2018-3/2019 T3H</span>
+                        <p>Thực tập frontend</p>
                     </div>
                 </div><br>
                 <div class="resume-wrap d-flex" style="margin-bottom: 0;">
@@ -125,16 +124,15 @@
                         <span class="flaticon-ideas"></span>
                     </div>
                     <div class="text pl-2">
-                        <span class="date">2014-2015 Zent education</span>
-                        <p>A small river named  regelialia.</p>
-                        <p>A small river named  regelialia.</p>
+                        <span class="date">6/2019-10/2019 MISA</span>
+                        <p>Web Dev Training</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-5 col-lg-5 d-flex">
                 <div class="img-about img d-flex align-items-stretch">
                     <div class="overlay"></div>
-                    <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(about/images/about.jpg);">
+                    <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(about/images/thao.jpg);">
                     </div>
                 </div>
             </div>
@@ -149,13 +147,7 @@
                 <a href="#" class="partner"><img src="{{ asset('/about/images/php3.png')}}" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <div class="col-sm">
-                <a href="#" class="partner"><img src="{{ asset('/about/images/golang.png')}}" class="img-fluid" alt="Colorlib Template"></a>
-            </div>
-            <div class="col-sm">
                 <a href="#" class="partner"><img src="{{ asset('/about/images/front.png')}}" class="img-fluid" alt="Colorlib Template"></a>
-            </div>
-            <div class="col-sm">
-                <a href="#" class="partner"><img src="{{ asset('/about/images/vue.png')}}" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <div class="col-sm">
                 <a href="#" class="partner"><img src="{{ asset('/about/images/partner-3.png')}}" class="img-fluid" alt="Colorlib Template"></a>
