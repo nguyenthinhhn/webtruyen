@@ -50,6 +50,7 @@
                         <h3 class="m-login__title">Đăng nhập</h3>
                     </div>
                     <form class="m-login__form m-form" action="{{ route('login') }}" method="post">
+                        @csrf
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder="@lang('auth.email_plh')" name="email"
                                    autocomplete="off">
@@ -82,6 +83,7 @@
                         <div class="m-login__desc">@lang('auth.sign_up_desc')</div>
                     </div>
                     <form class="m-login__form m-form" action="{{ route('register') }}" method="post">
+                        @csrf
                         <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder="@lang('auth.fullname_plh')" name="fullname">
                         </div>
